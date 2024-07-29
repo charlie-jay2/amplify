@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Aileron";
+  src: url("../fonts/Aileron-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Aileron-Heavy";
+  src: url("../fonts/Aileron-Heavy.otf") format("opentype");
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+body {
+  font-family: "Aileron";
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: black;
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "aileron-heavy";
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  font-family: "aileron";
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.hero {
+  margin-top: 100px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f4f4;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.info {
+  text-align: center;
+  padding: 50px 20px;
+  font-family: "aileron-heavy";
+  background: #fff;
+}
+
+.info h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "aileron";
+}
+
+.footer {
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "aileron-heavy";
+}
