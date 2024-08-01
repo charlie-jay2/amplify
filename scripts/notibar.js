@@ -3,7 +3,7 @@
 // Define your notification settings here
 var notibar = {
     enabled: true, // Set to true to enable the notification bar
-    text: `Due to circumstances. We have had to push the events back by 1 week. Please join our <a href="https://www.discord.gg/BPxAaPVuXG" target="_blank">Discord</a> to keep updated.`,
+    text: `Due to circumstances, we have had to push the events back by 1 week. Please join our <a href="https://www.discord.gg/BPxAaPVuXG" target="_blank" style="color: #ffeb3b;">Discord</a> to keep updated.`,
     backgroundColor: "black",
     textColor: "white",
     height: "50px",
@@ -27,6 +27,17 @@ if (notibar.enabled) {
     // Add the text to the notification bar
     notificationBar.innerHTML = notibar.text;
 
+    // Select the slideshow container
+    var slideshowContainer = document.querySelector('.slideshow-container');
+
+    // Modify the slideshow container margin depending on closeButton setting
+    if (notibar.closeButton) {
+        slideshowContainer.style.marginBottom = ''; // Reset margin-bottom if close button is enabled
+    } else {
+        slideshowContainer.style.marginBottom = '-60px'; // Apply negative margin if close button is disabled
+        document.querySelector('.hero').style.marginTop = notibar.height; // Adjust main content margin
+    }
+
     // Add a close button if enabled
     if (notibar.closeButton) {
         var closeButton = document.createElement('span');
@@ -36,11 +47,12 @@ if (notibar.enabled) {
         closeButton.style.fontSize = '20px';
         closeButton.onclick = function () {
             notificationBar.style.display = 'none';
+            document.querySelector('.hero').style.marginTop = ''; // Reset the margin when closed
         };
         notificationBar.appendChild(closeButton);
     }
 
-    // Find the navigation bar and insert the notification bar after it
+    // Insert the notification bar after the navigation bar
     var navBar = document.querySelector('header nav');
     navBar.parentNode.insertBefore(notificationBar, navBar.nextSibling);
 }
