@@ -132,3 +132,13 @@ nav {
   display: block;
   z-index: 0;
 }
+
+header nav {
+  width: 100%;
+  /* Add any other styles you need here */
+}
+
+nav + div {
+  /* This targets the notification bar directly following the nav */
+  box-sizing: border-box;
+}
