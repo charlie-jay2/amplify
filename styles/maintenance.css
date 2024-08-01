@@ -103,6 +103,7 @@ nav {
   padding: 50px 20px;
   font-family: "aileron-heavy";
   background: #fff;
+  z-index: 1;
 }
 
 .info h2 {
@@ -119,6 +120,15 @@ nav {
 
 .footer {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 25px;
   font-family: "aileron-heavy";
+}
+
+.aopening {
+  width: 400px;
+  margin-top: -70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index: 0;
 }
