@@ -27,17 +27,6 @@ if (notibar.enabled) {
     // Add the text to the notification bar
     notificationBar.innerHTML = notibar.text;
 
-    // Select the slideshow container
-    var slideshowContainer = document.querySelector('.slideshow-container');
-
-    // Modify the slideshow container margin depending on closeButton setting
-    if (notibar.closeButton) {
-        slideshowContainer.style.marginBottom = ''; // Reset margin-bottom if close button is enabled
-    } else {
-        slideshowContainer.style.marginBottom = '-60px'; // Apply negative margin if close button is disabled
-        document.querySelector('.hero').style.marginTop = notibar.height; // Adjust main content margin
-    }
-
     // Add a close button if enabled
     if (notibar.closeButton) {
         var closeButton = document.createElement('span');
@@ -50,6 +39,9 @@ if (notibar.enabled) {
             document.querySelector('.hero').style.marginTop = ''; // Reset the margin when closed
         };
         notificationBar.appendChild(closeButton);
+    } else {
+        // If close button is not enabled, adjust the main content margin
+        document.querySelector('.hero').style.marginTop = notibar.height;
     }
 
     // Insert the notification bar after the navigation bar
