@@ -8,7 +8,6 @@
   src: url("../fonts/Aileron-Heavy.otf") format("opentype");
 }
 
-/* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -134,47 +133,40 @@ nav {
 
 header nav {
   width: 100%;
-  /* Add any other styles you need here */
 }
 
 nav + div {
-  /* This targets the notification bar directly following the nav */
   box-sizing: border-box;
 }
 
-/* Style the audio player container */
 .audio-container {
-  background-color: white; /* Set background color to black */
+  background-color: white;
   padding: 10px;
   width: 500px;
-  border-radius: 10px; /* Updated to match the rounded corners */
+  border-radius: 10px;
   display: inline-block;
 }
 
-/* Ensure the audio element takes the full width */
 .styled-audio {
   width: 100%;
   border-radius: 10px;
   font-family: "aileron-heavy";
 }
 
-/* Style the audio control panel */
 audio::-webkit-media-controls-panel {
   background-color: black;
   border-radius: 10px;
 }
 
-/* Style the play button and progress bar */
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-timeline,
 audio::-webkit-media-controls-mute-button,
 audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display,
 audio::-webkit-media-controls-volume-slider {
-  filter: invert(100%); /* Invert colors to make them white */
+  filter: invert(100%);
 }
 
-/* Disable the download button */
 audio::-webkit-media-controls-enclosure {
   overflow: hidden;
 }
@@ -184,8 +176,8 @@ audio::-webkit-media-controls-download-button {
 }
 
 .transcript-button-container {
-  margin-top: 5px; /* Adds some space between the audio player and the transcript button */
-  text-align: center; /* Center the button */
+  margin-top: 5px;
+  text-align: center;
 }
 
 .transcript-btn {
@@ -201,7 +193,6 @@ audio::-webkit-media-controls-download-button {
   background-color: #333;
 }
 
-/* Modal styling remains the same */
 .transcript-modal {
   display: none;
   position: fixed;

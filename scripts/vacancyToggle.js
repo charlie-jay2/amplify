@@ -1,6 +1,5 @@
-// JavaScript to toggle visibility of job vacancies
 const jobStatus = {
-    job1: true,  // Set to true if job is available, false if not
+    job1: true,
     job2: true,
     job3: true
 };
@@ -15,7 +14,6 @@ window.onload = function () {
     const footerElement = document.querySelector('.footer');
     let allJobsClosed = true;
 
-    // Check the job status and show/hide accordingly
     for (let job in jobStatus) {
         if (jobStatus[job]) {
             jobElements[job].style.display = 'flex';
@@ -25,7 +23,6 @@ window.onload = function () {
         }
     }
 
-    // Adjust footer margin based on job availability
     if (allJobsClosed) {
         document.getElementById('vacancy-container').style.display = 'none';
         document.getElementById('no-vacancies-message').style.display = 'block';
