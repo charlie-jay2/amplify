@@ -90,7 +90,6 @@ nav {
 
 .mySlides img {
   width: 100%;
-  border-radius: 10px;
 }
 
 .active-slide {
@@ -110,7 +109,7 @@ nav {
 }
 
 .transcript-button-container {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .transcript-btn {
@@ -196,7 +195,7 @@ nav {
 }
 
 .service-card {
-  background: #f4f4f4;
+  background: black;
   margin: 20px;
   padding: 20px;
   border-radius: 10px;
@@ -205,6 +204,7 @@ nav {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
   vertical-align: top;
+  color: white;
 }
 
 .service-card h3 {
@@ -308,10 +308,45 @@ nav {
 }
 
 .footer-bottom {
-  background: #333;
+  background: black;
   color: #fff;
   padding: 10px 0;
   text-align: center;
   font-family: "Aileron-Heavy";
   margin-top: 20px;
+}
+
+.audio-container {
+  background-color: transparent;
+  padding: 10px;
+  width: 500px;
+  display: inline-block;
+}
+
+.styled-audio {
+  width: 100%;
+  border-radius: 10px;
+  font-family: "aileron-heavy";
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: black;
+  border-radius: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-volume-slider {
+  filter: invert(100%);
+}
+
+audio::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+audio::-webkit-media-controls-download-button {
+  display: none;
 }
