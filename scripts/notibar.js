@@ -16,7 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 notificationBar.innerHTML = notibar.text;
 
-                if (notibar.closeButton) {
+                var heroElement = document.querySelector('.hero');
+                var closeButtonEnabled = notibar.closeButton;
+                var heroMarginTop = closeButtonEnabled ? '90px' : '110px';
+
+                if (closeButtonEnabled) {
                     var closeButton = document.createElement('span');
                     closeButton.innerHTML = '&times;';
                     closeButton.style.marginLeft = '20px';
@@ -24,15 +28,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     closeButton.style.fontSize = '20px';
                     closeButton.onclick = function () {
                         notificationBar.style.display = 'none';
-                        document.querySelector('.hero').style.marginTop = '';
+                        heroElement.style.marginTop = '110px'; // Adjust the margin-top when hidden
                     };
                     notificationBar.appendChild(closeButton);
                 } else {
-                    document.querySelector('.hero').style.marginTop = notibar.height;
+                    heroElement.style.marginTop = heroMarginTop; // Set initial margin-top
                 }
 
                 var navBar = document.querySelector('header nav');
                 navBar.parentNode.insertBefore(notificationBar, navBar.nextSibling);
+
+                if (closeButtonEnabled) {
+                    heroElement.style.marginTop = heroMarginTop; // Set initial margin-top if close button is enabled
+                }
             }
         })
         .catch(error => console.error('Error fetching notibar configuration:', error));
