@@ -5,7 +5,7 @@ var notibar = {
     textColor: "white",
     height: "50px",
     fontSize: "16px",
-    closeButton: true
+    closeButton: true,
 };
 
 if (notibar.enabled) {
