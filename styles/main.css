@@ -16,6 +16,7 @@ body {
   font-family: "Aileron";
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 header {
@@ -26,6 +27,7 @@ header {
   width: 100%;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -40,13 +42,13 @@ nav {
 .logo a {
   color: #fff;
   text-decoration: none;
-  font-family: "aileron-heavy";
+  font-family: "Aileron-Heavy";
   font-size: 24px;
+  text-transform: uppercase;
 }
 
 .nav-links {
   list-style: none;
-  font-family: "aileron";
   display: flex;
 }
 
@@ -58,10 +60,15 @@ nav {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ccc;
 }
 
 .hero {
-  margin-top: 100px;
+  margin-top: 80px;
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -81,6 +88,7 @@ nav {
 
 .mySlides img {
   width: 100%;
+  border-radius: 10px;
 }
 
 .fade {
@@ -100,84 +108,36 @@ nav {
 .info {
   text-align: center;
   padding: 50px 20px;
-  font-family: "aileron-heavy";
   background: #fff;
-}
-
-.sannc {
-  text-align: center;
-}
-
-.sannc h2 {
-  font-size: 20px;
-  font-family: "aileron-heavy";
 }
 
 .info h2 {
   font-size: 36px;
   margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
 }
 
 .info p {
   font-size: 18px;
   max-width: 800px;
   margin: 0 auto;
-  font-family: "aileron";
+  font-family: "Aileron";
 }
 
-.footer {
+.sannc {
   text-align: center;
-  margin-bottom: 10px;
-  font-family: "aileron-heavy";
+  padding: 50px 20px;
+  background: #f4f4f4;
 }
 
-header nav {
-  width: 100%;
-}
-
-nav + div {
-  box-sizing: border-box;
-}
-
-.audio-container {
-  background-color: white;
-  padding: 10px;
-  width: 500px;
-  border-radius: 10px;
-  display: inline-block;
-}
-
-.styled-audio {
-  width: 100%;
-  border-radius: 10px;
-  font-family: "aileron-heavy";
-}
-
-audio::-webkit-media-controls-panel {
-  background-color: black;
-  border-radius: 10px;
-}
-
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-timeline,
-audio::-webkit-media-controls-mute-button,
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display,
-audio::-webkit-media-controls-volume-slider {
-  filter: invert(100%);
-}
-
-audio::-webkit-media-controls-enclosure {
-  overflow: hidden;
-}
-
-audio::-webkit-media-controls-download-button {
-  display: none;
+.sannc h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
 }
 
 .transcript-button-container {
-  margin-top: 5px;
-  text-align: center;
+  margin-top: 20px;
 }
 
 .transcript-btn {
@@ -187,6 +147,8 @@ audio::-webkit-media-controls-download-button {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  font-family: "Aileron-Heavy";
+  transition: background-color 0.3s ease;
 }
 
 .transcript-btn:hover {
@@ -220,11 +182,144 @@ audio::-webkit-media-controls-download-button {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close-btn:hover,
 .close-btn:focus {
   color: black;
   text-decoration: none;
-  cursor: pointer;
+}
+
+.services {
+  padding: 50px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.service-card {
+  background: #f4f4f4;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  width: calc(33% - 40px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.service-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-family: "Aileron-Heavy";
+}
+
+.service-card p {
+  font-size: 18px;
+  font-family: "Aileron";
+}
+
+.testimonials {
+  padding: 50px 20px;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.testimonial {
+  background: #fff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  width: calc(33% - 40px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.testimonial p {
+  font-size: 18px;
+  font-family: "Aileron";
+}
+
+.testimonial h4 {
+  font-size: 18px;
+  margin-top: 10px;
+  font-family: "Aileron-Heavy";
+  text-align: right;
+}
+
+.footer {
+  background: black;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.footer-section h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  font-size: 18px;
+  font-family: "Aileron";
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ccc;
+}
+
+.footer-bottom {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-family: "Aileron-Heavy";
+  margin-top: 20px;
 }
