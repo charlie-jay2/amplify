@@ -13,10 +13,11 @@
 }
 
 body {
-  font-family: "Aileron";
+  font-family: "Aileron", sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  background: #f4f4f4;
 }
 
 header {
@@ -50,10 +51,11 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
+  gap: 15px;
 }
 
 .nav-links li {
-  margin: 0 10px;
+  margin: 0;
 }
 
 .nav-links a {
@@ -68,12 +70,12 @@ nav {
 }
 
 .hero {
-  margin-top: 80px;
+  margin-top: 60px;
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f4f4f4;
+  background: #fff;
 }
 
 .slideshow-container {
@@ -91,43 +93,14 @@ nav {
   border-radius: 10px;
 }
 
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.info {
-  text-align: center;
-  padding: 50px 20px;
-  background: #fff;
-}
-
-.info h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  font-family: "Aileron-Heavy";
-}
-
-.info p {
-  font-size: 18px;
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: "Aileron";
+.active-slide {
+  display: block;
 }
 
 .sannc {
   text-align: center;
   padding: 50px 20px;
-  background: #f4f4f4;
+  background: #fff;
 }
 
 .sannc h2 {
@@ -189,6 +162,25 @@ nav {
 .close-btn:focus {
   color: black;
   text-decoration: none;
+}
+
+.info {
+  text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.info h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.info p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Aileron";
 }
 
 .services {
