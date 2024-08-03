@@ -230,9 +230,10 @@ nav {
 }
 
 .testimonial {
-  background: #fff;
+  background: black;
   margin: 20px;
   padding: 20px;
+  color: white;
   border-radius: 10px;
   display: inline-block;
   width: calc(33% - 40px);
