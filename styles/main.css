@@ -69,12 +69,20 @@ nav {
 }
 
 .hero {
-  margin-top: 90px;
+  margin-top: 100px; /* Default margin for larger screens */
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: #f4f4f4;
+  /* You might want to add padding-bottom to create space if content might get cut off */
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .hero {
+    display: none;
+  }
 }
 
 .slideshow-container {

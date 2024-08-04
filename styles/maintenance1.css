@@ -1,0 +1,211 @@
+@font-face {
+  font-family: "Aileron";
+  src: url("../fonts/Aileron-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Aileron-Heavy";
+  src: url("../fonts/Aileron-Heavy.otf") format("opentype");
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+body {
+  font-family: "Aileron";
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: black;
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "aileron-heavy";
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  font-family: "aileron";
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.hero {
+  margin-top: 100px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f4f4;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.info {
+  text-align: center;
+  padding: 50px 20px;
+  font-family: "aileron-heavy";
+  background: #fff;
+  z-index: 1;
+}
+
+.info h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "aileron";
+}
+
+.footer {
+  text-align: center;
+  margin-top: 25px;
+  font-family: "aileron-heavy";
+}
+
+.aopening {
+  width: 400px;
+  margin-top: -70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index: 0;
+}
+
+header nav {
+  width: 100%;
+  /* Add any other styles you need here */
+}
+
+nav + div {
+  /* This targets the notification bar directly following the nav */
+  box-sizing: border-box;
+}
+
+.hero {
+  margin-top: 0; /* Ensure no margin-top is set by default */
+  transition: margin-top 0.3s ease-in-out; /* Optional: smooth transition */
+}
+
+.footer {
+  background: black;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.footer-section h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  font-size: 18px;
+  font-family: "Aileron";
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ccc;
+}
+
+.footer-bottom {
+  background: black;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-family: "Aileron-Heavy";
+  margin-top: 20px;
+}
