@@ -29,9 +29,9 @@ nav {
 
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
-  .hero {
+  /* .hero {
     display: none;
-  }
+  } */
 
   .info {
     margin-top: 160px;
