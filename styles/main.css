@@ -83,6 +83,10 @@ nav {
   .hero {
     display: none;
   }
+
+  .info {
+    margin-top: 160px;
+  }
 }
 
 .slideshow-container {

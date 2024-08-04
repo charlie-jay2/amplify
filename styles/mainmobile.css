@@ -27,6 +27,17 @@ nav {
   margin-top: 60px;
 }
 
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .hero {
+    display: none;
+  }
+
+  .info {
+    margin-top: 160px;
+  }
+}
+
 .slideshow-container {
   width: 100%;
 }
