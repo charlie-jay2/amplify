@@ -50,6 +50,13 @@ nav {
   padding: 30px 10px;
 }
 
+.info1 {
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: -90px;
+  background: #fff;
+}
+
 .sannc h2,
 .info h2,
 .services h2,

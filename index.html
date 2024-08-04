@@ -167,6 +167,41 @@
         <h4>- Anonymous</h4>
       </div>
     </section>
+    <section class="info1">
+      <h2>Running Hours</h2>
+      <p id="running-hours">
+        <!-- Hours will be injected by JavaScript -->
+      </p>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const runningHoursElement = document.getElementById("running-hours");
+        
+        // Define hours
+        const defaultHours = `
+          <strong>Weekdays:</strong> 9am - 6pm<br>
+          <strong>Saturday:</strong> 11am - 6pm<br>
+          <strong>Sunday:</strong> 12pm - 3pm
+        `;
+        
+        const updatedHours = `
+          <strong>Weekdays:</strong> 3pm - 8pm<br>
+          <strong>Saturday:</strong> 11am - 6pm<br>
+          <strong>Sunday:</strong> 12pm - 3pm
+        `;
+        
+        // Get current date
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const changeDate = new Date(currentYear, 8, 3); // September 3rd
+    
+        // Determine which hours to show
+        const hoursToShow = today >= changeDate ? updatedHours : defaultHours;
+    
+        // Inject hours into the HTML
+        runningHoursElement.innerHTML = hoursToShow;
+      });
+    </script>
     <style>
       .iframe-container {
         position: relative;
