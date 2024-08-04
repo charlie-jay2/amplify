@@ -8,7 +8,6 @@
   src: url("../fonts/Aileron-Heavy.otf") format("opentype");
 }
 
-/* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -135,17 +134,15 @@ nav {
 
 header nav {
   width: 100%;
-  /* Add any other styles you need here */
 }
 
 nav + div {
-  /* This targets the notification bar directly following the nav */
   box-sizing: border-box;
 }
 
 .hero {
-  margin-top: 0; /* Ensure no margin-top is set by default */
-  transition: margin-top 0.3s ease-in-out; /* Optional: smooth transition */
+  margin-top: 0;
+  transition: margin-top 0.3s ease-in-out;
 }
 
 .footer {
@@ -200,7 +197,31 @@ nav + div {
 .footer-section ul li a:hover {
   color: #ccc;
 }
+header,
+#notification-bar {
+  transition: transform 0.3s ease-in-out;
+}
 
+.slide-out {
+  transform: translateY(-100%);
+}
+
+.slide-in {
+  transform: translateY(0);
+}
+
+header,
+#notification-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+#notification-bar {
+  top: 50px;
+}
 .footer-bottom {
   background: black;
   color: #fff;

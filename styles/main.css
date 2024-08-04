@@ -69,16 +69,14 @@ nav {
 }
 
 .hero {
-  margin-top: 100px; /* Default margin for larger screens */
+  margin-top: 100px;
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #f4f4f4;
-  /* You might want to add padding-bottom to create space if content might get cut off */
 }
 
-/* Media Queries for Mobile */
 @media (max-width: 768px) {
   .hero {
     display: none;
@@ -87,6 +85,32 @@ nav {
   .info {
     margin-top: 160px;
   }
+}
+
+header,
+#notification-bar {
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-out {
+  transform: translateY(-100%);
+}
+
+.slide-in {
+  transform: translateY(0);
+}
+
+header,
+#notification-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+#notification-bar {
+  top: 50px;
 }
 
 .slideshow-container {
