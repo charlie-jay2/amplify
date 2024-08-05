@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Embed PDF Fullscreen</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #pdf-container {
+        width: 100%;
+        height: 100%;
+        margin-top: -40px;
+        position: relative;
+      }
+      #pdf-frame {
+        width: 100%;
+        height: 110%;
+        border: none;
+      }
+      .hide-toolbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40px; /* Adjust if necessary */
+        background: white;
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pdf-container">
+      <iframe
+        id="pdf-frame"
+        src="https://amplifyrblx.uk/Amplify_Blacklist_Notice.pdf#toolbar=0"></iframe>
+      <div class="hide-toolbar"></div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const pdfFrame = document.getElementById("pdf-frame");
+        pdfFrame.onload = () => {
+          const iframeDoc =
+            pdfFrame.contentDocument || pdfFrame.contentWindow.document;
+          iframeDoc.querySelectorAll("a").forEach((a) => {
+            if (a.download) {
+              a.style.display = "none";
+            }
+          });
+        };
+      });
+    </script>
+  </body>
+</html>
