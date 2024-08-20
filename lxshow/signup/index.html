@@ -26,7 +26,7 @@
             border: 6px solid rgba(255, 255, 255, 0.2);
             border-top: 6px solid #fff;
             border-radius: 50%;
-            animation: spin 1s linear infinite, pulse 1.5s ease-in-out infinite;
+            animation: spin 0.8s linear infinite, pulse 1.2s ease-in-out infinite;
             margin-bottom: 30px;
         }
 
@@ -45,7 +45,7 @@
             text-align: center;
             margin: 0;
             opacity: 1;
-            transition: opacity 2s ease-in-out;
+            transition: opacity 1.5s ease-in-out;
         }
 
         .fade-out {
@@ -54,7 +54,7 @@
 
         .redirect-container {
             text-align: center;
-            animation: slideUp 1s ease-in-out, fadeIn 1.5s ease-in-out;
+            animation: slideUp 0.8s ease-in-out, fadeIn 1.2s ease-in-out;
             opacity: 1;
         }
 
@@ -83,7 +83,7 @@
             bottom: 20px;
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.7);
-            animation: fadeIn 3s ease-in-out;
+            animation: fadeIn 1.2s ease-in-out;
         }
 
     </style>
@@ -102,11 +102,11 @@
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
                 document.querySelector('.redirect-container').classList.add('fade-out');
-            }, 3000);
+            }, 1500);
 
             setTimeout(function() {
-                window.location.href = "https://forms.gle/emmWZ4EXEVmAR6U8A";
-            }, 5000);
+                window.location.href = "https://forms.gle/emmWZ4EXEVmAR6U8A"; // Replace with your destination URL
+            }, 2500);
         });
     </script>
 </body>
