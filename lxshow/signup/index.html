@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aileron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e1e;
+            font-family: 'Aileron', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+        .redirect-container {
+            animation: zoomOut 2s forwards 2s;
+        }
+
+        @keyframes zoomOut {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <h1>Redirecting to your destination...</h1>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.querySelector('h1').classList.add('fade-out');
+            }, 2000);
+
+            setTimeout(function() {
+                window.location.href = "https://forms.gle/emmWZ4EXEVmAR6U8A";
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
