@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Root Color Variables */
+:root {
+    --primaryColor: #131415;
+    --secondaryColor: #5a4fcf;
+    --tertiaryColor: #4fcfca;
+    --quaColor: #303236;
+    --whiteColor: #ffffff;
+}
+
+/* Global Styles */
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+    color: var(--tertiaryColor);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Navigation */
+nav {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    padding: 1rem 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--tertiaryColor);
+}
+
+/* Banner Header */
+.banner-header {
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--whiteColor);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-bottom: 2px solid var(--secondaryColor);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.banner-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.banner-header p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.banner-header .add-to-discord {
+    background-color: var(--secondaryColor);
+    color: var(--whiteColor);
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.banner-header .add-to-discord:hover {
+    background-color: var(--tertiaryColor);
+    transform: translateY(-5px);
+}
+
+/* Section */
+.section {
+    padding: 3rem 1rem;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Review Cards */
+.review-card {
+    background-color: var(--whiteColor);
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    padding: 20px;
+    margin: 15px;
+    overflow: hidden;
+    text-align: center;
+    max-width: 360px;
+    position: relative;
+    animation: fadeIn 0.6s ease-in;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.review-card img {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.review-card .reviewer-name {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--secondaryColor);
+    margin-bottom: 10px;
+}
+
+.review-card .review-text {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.review-card .review-date {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondaryColor);
+    border-radius: 6px;
+    border: 2px solid var(--primaryColor);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primaryColor);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--tertiaryColor);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media only screen and (min-width: 640px) {
+    .section {
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+
+    .sectionGrid {
+        display: grid;
+        align-items: center;
+        grid-template-columns: auto auto;
+        grid-gap: 6%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
