@@ -14,25 +14,30 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             font-family: 'Aileron', sans-serif;
             color: #fff;
             overflow: hidden;
         }
 
         .loader {
-            width: 50px;
-            height: 50px;
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid #fff;
+            width: 60px;
+            height: 60px;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            border-top: 6px solid #fff;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
+            animation: spin 1s linear infinite, pulse 1.5s ease-in-out infinite;
+            margin-bottom: 30px;
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         h1 {
@@ -49,13 +54,13 @@
 
         .redirect-container {
             text-align: center;
-            animation: slideUp 1s ease-in-out;
+            animation: slideUp 1s ease-in-out, fadeIn 1.5s ease-in-out;
             opacity: 1;
         }
 
         @keyframes slideUp {
             0% {
-                transform: translateY(100px);
+                transform: translateY(50px);
                 opacity: 0;
             }
             100% {
@@ -64,20 +69,23 @@
             }
         }
 
-        .zoomOut {
-            animation: zoomOut 2s forwards;
-        }
-
-        @keyframes zoomOut {
+        @keyframes fadeIn {
             0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(0);
                 opacity: 0;
             }
+            100% {
+                opacity: 1;
+            }
         }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: fadeIn 3s ease-in-out;
+        }
+
     </style>
 </head>
 <body>
@@ -86,15 +94,19 @@
         <h1>Redirecting to your destination...</h1>
     </div>
 
+    <footer>
+        Please wait while we prepare your experience...
+    </footer>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
-                document.querySelector('.redirect-container').classList.add('zoomOut');
-            }, 2000);
+                document.querySelector('.redirect-container').classList.add('fade-out');
+            }, 3000);
 
             setTimeout(function() {
-                window.location.href = "https://amplifyrblx.uk/lxshow/signup/";
-            }, 4000);
+                window.location.href = "https://forms.gle/emmWZ4EXEVmAR6U8A";
+            }, 5000);
         });
     </script>
 </body>
