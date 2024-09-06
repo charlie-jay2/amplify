@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple Shipping Percentage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #percentage {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Couple Shipping Percentage</h1>
+        <form id="shipping-form">
+            <label for="name1">Your Name:</label>
+            <input type="text" id="name1" name="name1" required>
+            <label for="name2">Partner's Name:</label>
+            <input type="text" id="name2" name="name2" required>
+            <button type="submit">Calculate Shipping Percentage</button>
+        </form>
+        <div id="result">
+            <p id="percentage"></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('shipping-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name1 = document.getElementById('name1').value.trim();
+            const name2 = document.getElementById('name2').value.trim();
+
+            if (name1 === '' || name2 === '') {
+                alert('Please enter both names.');
+                return;
+            }
+
+            const percentage = calculateShippingPercentage(name1, name2);
+            document.getElementById('percentage').innerText = `Your Shipping Percentage is ${percentage}%`;
+        });
+
+        function calculateShippingPercentage(name1, name2) {
+            if (name1.toLowerCase() === 'ted' || name1.toLowerCase() === 'liv' || 
+                name2.toLowerCase() === 'ted' || name2.toLowerCase() === 'liv') {
+                return 100;
+            }
+
+            const combinedLength = name1.length + name2.length;
+            const hash = name1.charCodeAt(0) + name2.charCodeAt(0);
+            const percentage = (hash % combinedLength) + 50; // Ensure percentage is between 50 and 100
+            return Math.min(Math.max(percentage, 50), 100);
+        }
+    </script>
+</body>
+</html>
