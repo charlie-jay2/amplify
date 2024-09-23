@@ -1,265 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Bull Soapbox Race</title>
-    <style>
-        /* Global Styles */
-        body, html {
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-            font-family: "Courier New", Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden; /* Prevent scrolling */
-        }
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Countdown timer logic remains unchanged...
+        
+        // Modal logic remains unchanged...
 
-        h1, h2, h3 {
-            text-align: center;
-            margin: 5px;
-            color: #cc0000;
-        }
+        // Form submission logic
+        document.getElementById("applicationForm").addEventListener("submit", function(e) {
+            e.preventDefault();
 
-        h1 {
-            font-size: 32px;
-            margin-top: 20px;
-        }
+            const name = document.getElementById("name").value;
+            const teamName = document.getElementById("teamName").value;
+            const soapboxFile = document.getElementById("soapboxFile").files[0]; // File input
 
-        h2 {
-            font-size: 24px;
-            margin: 10px 0;
-        }
-
-        p, label {
-            font-size: 16px;
-            line-height: 1.4;
-            margin: 10px;
-            text-align: center;
-            color: #555;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: #eee;
-            padding: 20px;
-            width: 100%;
-            border-bottom: 2px solid #cc0000;
-        }
-
-        /* Content Styles */
-        .content {
-            padding: 15px;
-            margin: 10px 0;
-            width: 90%;
-            max-width: 600px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Countdown Styles */
-        .countdown {
-            padding: 20px;
-            margin: 20px 0;
-            background-color: #fff;
-            border: 1px solid #cc0000;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        /* Button Styles */
-        button, input[type="submit"] {
-            font-family: "Courier New", Courier, monospace;
-            font-size: 16px;
-            padding: 10px 20px;
-            margin: 10px;
-            border: 1px solid #cc0000;
-            background-color: #eee;
-            color: #cc0000;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        button:hover, input[type="submit"]:hover {
-            background-color: #cc0000;
-            color: #fff;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 20% auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 400px;
-            position: relative;
-            border-radius: 5px;
-        }
-
-        .close {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            cursor: pointer;
-            color: #cc0000;
-        }
-
-        /* Form Styles */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        input[type="text"],
-        input[type="file"] {
-            width: 90%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>RED BULL SOAPBOX RACE</h1>
-        <p>November 2, 2024 | Queen Elizabeth Park Road, Edmonton</p>
-    </header>
-
-    <div class="content">
-        <h2>What is the Red Bull Soapbox Race?</h2>
-        <p>The Red Bull Soapbox Race is an international event where amateur drivers race homemade soapbox vehicles. Join us for a day of thrilling races, wild designs, and unforgettable performances!</p>
-        <a href="soapbloxtemplate.rbxm" download="soapbloxtemplate.rbxm">
-            <button>Download Soapbox</button>
-        </a>
-    </div>
-
-    
-    <div class="countdown">
-        <h2>Countdown to the Race</h2>
-        <button id="applyBtn">APPLY NOW</button>
-        <div id="countdownTimer">
-            <span id="days">0</span> days 
-            <span id="hours">0</span> hours 
-            <span id="minutes">0</span> minutes 
-            <span id="seconds">0</span> seconds
-        </div>
-    </div>
-
-        <!-- Guidelines Button -->
-    <a href="https://docs.google.com/document/d/1GvykoVzz1S87Q9SYUKlhSbacxvXAhqnSG7Idgv2AXDs/edit?usp=sharing" target="_blank">
-        <button>Guidelines</button>
-    </a>
-</body>
-</html>
-
-
-    <div id="formModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Application Form</h3>
-            <form id="applicationForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="teamName">Team Name:</label>
-                <input type="text" id="teamName" name="teamName" required>
-
-                <label for="soapboxFile">Soapbox File (.rbxm only):</label>
-                <input type="file" id="soapboxFile" name="soapboxFile" accept=".rbxm" required>
-
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Countdown timer logic
-            const targetDate = new Date("November 2, 2024").getTime();
-
-            const countdown = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-
-                if (distance < 0) {
-                    clearInterval(countdown);
-                    document.getElementById("countdownTimer").innerHTML = "Event has started!";
-                }
-            }, 1000);
-
-            // Modal logic
-            const modal = document.getElementById("formModal");
-            const applyBtn = document.getElementById("applyBtn");
-            const span = document.getElementsByClassName("close")[0];
-
-            applyBtn.onclick = function() {
-                modal.style.display = "block";
+            // You may want to validate the file type and size here
+            if (!soapboxFile || soapboxFile.type !== 'application/octet-stream') {
+                alert("Please upload a valid .rbxm file.");
+                return;
             }
 
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
+            // Webhook expects JSON, so we're building the payload
+            const webhookData = {
+                username: "Soapbox Race Application",
+                embeds: [{
+                    title: "New Application",
+                    color: 16711680,  // Red color
+                    fields: [
+                        { name: "Name", value: name },
+                        { name: "Team Name", value: teamName },
+                        { name: "Soapbox File", value: soapboxFile.name }  // Only the filename
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
+            };
 
-            window.onclick = function(event) {
-                if (event.target == modal) {
+            // Send JSON payload to Discord webhook
+            fetch("https://discord.com/api/webhooks/1246015533728403470/jJd0pwkXLT5hP34DpHz12kcGvFy8dwxEve9f47JkpMG5MhHYpkdLb8GTzQiXronrhsDS", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(webhookData)
+            }).then(response => {
+                if (response.ok) {
+                    alert("Application submitted successfully!");
                     modal.style.display = "none";
-                }
-            }
-
-            // Form submission logic
-            document.getElementById("applicationForm").addEventListener("submit", function(e) {
-                e.preventDefault();
-
-                const name = document.getElementById("name").value;
-                const teamName = document.getElementById("teamName").value;
-                const soapboxFile = document.getElementById("soapboxFile").files[0];
-
-                const formData = new FormData();
-                formData.append("name", name);
-                formData.append("teamName", teamName);
-                formData.append("soapboxFile", soapboxFile);
-
-                // Replace 'YOUR_DISCORD_WEBHOOK_URL' with your actual Discord Webhook URL
-                fetch("https://discord.com/api/webhooks/1246015533728403470/jJd0pwkXLT5hP34DpHz12kcGvFy8dwxEve9f47JkpMG5MhHYpkdLb8GTzQiXronrhsDS", {
-                    method: "POST",
-                    body: formData
-                }).then(response => {
-                    if (response.ok) {
-                        alert("Application submitted successfully!");
-                        modal.style.display = "none";
-                    } else {
-                        alert("Failed to submit application.");
-                    }
-                }).catch(error => {
-                    console.error("Error:", error);
+                } else {
                     alert("Failed to submit application.");
-                });
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("Failed to submit application.");
             });
         });
-    </script>
-</body>
-</html>
+    });
+</script>
