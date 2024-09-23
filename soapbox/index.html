@@ -74,7 +74,7 @@
         }
 
         /* Button Styles */
-        button, input[type="submit"] {
+        button {
             font-family: "Courier New", Courier, monospace;
             font-size: 16px;
             padding: 10px 20px;
@@ -86,7 +86,7 @@
             transition: background-color 0.2s;
         }
 
-        button:hover, input[type="submit"]:hover {
+        button:hover {
             background-color: #cc0000;
             color: #fff;
         }
@@ -120,22 +120,6 @@
             cursor: pointer;
             color: #cc0000;
         }
-
-        /* Form Styles */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        input[type="text"],
-        input[type="file"] {
-            width: 90%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
     </style>
 </head>
 <body>
@@ -161,25 +145,7 @@
             <span id="minutes">0</span> minutes 
             <span id="seconds">0</span> seconds
         </div>
-    </div>
-
-    <div id="formModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Application Form</h3>
-            <form id="applicationForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="teamName">Team Name:</label>
-                <input type="text" id="teamName" name="teamName" required>
-
-                <label for="soapboxFile">Soapbox File (.rbxm only):</label>
-                <input type="file" id="soapboxFile" name="soapboxFile" required>
-
-                <input type="submit" value="Submit">
-            </form>
-        </div>
+        <button id="guidelinesBtn">Guidelines</button>
     </div>
 
     <script>
@@ -202,54 +168,17 @@
                 }
             }, 1000);
 
-            // Modal logic
-            const modal = document.getElementById("formModal");
+            // Button logic
             const applyBtn = document.getElementById("applyBtn");
-            const span = document.getElementsByClassName("close")[0];
+            const guidelinesBtn = document.getElementById("guidelinesBtn");
 
             applyBtn.onclick = function() {
-                modal.style.display = "block";
+                window.location.href = "https://discord.com/channels/1228448569434968296/1267189691346583562/1287843793378480263"; // Replace with your website
             }
 
-            span.onclick = function() {
-                modal.style.display = "none";
+            guidelinesBtn.onclick = function() {
+                window.open("https://docs.google.com/document/d/1GvykoVzz1S87Q9SYUKlhSbacxvXAhqnSG7Idgv2AXDs/edit?usp=sharing", "_blank"); // Replace with your guidelines website
             }
-
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-
-            // Form submission logic
-            document.getElementById("applicationForm").addEventListener("submit", function(e) {
-                e.preventDefault();
-
-                const name = document.getElementById("name").value;
-                const teamName = document.getElementById("teamName").value;
-                const soapboxFile = document.getElementById("soapboxFile").files[0];
-
-                const formData = new FormData();
-                formData.append("name", name);
-                formData.append("teamName", teamName);
-                formData.append("soapboxFile", soapboxFile);
-
-                // Replace 'YOUR_DISCORD_WEBHOOK_URL' with your actual Discord Webhook URL
-                fetch("https://discord.com/api/webhooks/1246015533728403470/jJd0pwkXLT5hP34DpHz12kcGvFy8dwxEve9f47JkpMG5MhHYpkdLb8GTzQiXronrhsDS", {
-                    method: "POST",
-                    body: formData
-                }).then(response => {
-                    if (response.ok) {
-                        alert("Application submitted successfully!");
-                        modal.style.display = "none";
-                    } else {
-                        alert("Failed to submit application.");
-                    }
-                }).catch(error => {
-                    console.error("Error:", error);
-                    alert("Failed to submit application.");
-                });
-            });
         });
     </script>
 </body>
