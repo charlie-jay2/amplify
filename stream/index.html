@@ -8,7 +8,7 @@
         /* Global Styles */
         body {
             font-family: 'Aileron', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,72 +16,60 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            color: #212529;
+            color: #333;
         }
 
         /* Header Styling */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            padding: 20px;
             width: 100%;
+            background-color: #212529;
+            color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            font-size: 3rem;
-            color: #343a40;
-            letter-spacing: 1px;
+            font-size: 2.5rem;
             margin: 0;
-            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         p {
-            font-size: 1.2rem;
-            color: #6c757d;
-            margin: 5px 0 15px 0;
+            font-size: 1rem;
+            margin-top: 10px;
         }
 
         /* Twitch Player Container */
         #twitch-player-container {
             display: flex;
             justify-content: center;
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            background-color: #000;
+            padding: 0 10px;
         }
 
         #twitch-player {
             width: 100%;
-            height: 56.25vw; /* 16:9 aspect ratio */
-            max-height: 675px;
+            height: auto;
+            aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background-color: #000;
         }
 
         /* Footer */
         footer {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #868e96;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #777;
             text-align: center;
         }
 
-        /* Responsive Design */
+        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            #twitch-player {
-                height: 58vw; /* Adjust height for smaller screens */
-            }
-        }
-
-        @media (max-width: 480px) {
             h1 {
                 font-size: 2rem;
             }
@@ -90,18 +78,31 @@
                 font-size: 0.9rem;
             }
 
-            #twitch-player {
-                height: 60vw; /* Further adjustment for mobile screens */
+            #twitch-player-container {
+                padding: 0 5px;
             }
         }
 
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            p {
+                font-size: 0.85rem;
+            }
+
+            #twitch-player-container {
+                padding: 0 2px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>amplify streaming</h1>
-        <p>Broadcasting live events with excellence</p>
+        <p>Streaming live events from thatf1fin on amplifyrblx.uk</p>
     </header>
 
     <div id="twitch-player-container">
@@ -116,12 +117,12 @@
     <script>
         // Initialize Twitch Player
         var player = new Twitch.Player("twitch-player", {
-            channel: "thatf1fin",  // Replace with the actual channel
+            channel: "thatf1fin",  // Twitch channel
             width: "100%",
             height: "100%",
             autoplay: true,
             muted: false,
-            parent: ["amplifyrblx.uk"]  // Replace with your actual domain
+            parent: ["amplifyrblx.uk"]  // Parent domain
         });
     </script>
 
