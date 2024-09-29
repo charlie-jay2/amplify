@@ -5,55 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>amplify streaming</title>
     <style>
+        /* General Styles */
         body {
             font-family: 'Aileron', sans-serif;
-            background-color: #101010;
-            color: #fff;
+            background-color: #f4f4f4;
             margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             height: 100vh;
+            justify-content: center;
+            color: #333;
         }
 
         header {
             text-align: center;
-            padding: 20px;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin: 0;
-            color: #00c4cc;
+            font-weight: 600;
+            color: #333;
+            letter-spacing: 2px;
         }
 
+        p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        /* Twitch Player Container */
         #twitch-player {
             width: 80%;
-            max-width: 1000px;
-            height: 563px; /* 16:9 aspect ratio */
+            max-width: 1200px;
+            height: 675px; /* 16:9 Aspect Ratio */
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            background-color: #000;
         }
 
         footer {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #888;
+            margin-top: 30px;
+            font-size: 0.85em;
+            color: #777;
+        }
+
+        /* Button Styling for Twitch iframe */
+        iframe {
+            border: none;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            #twitch-player {
+                width: 95%;
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>amplify streaming</h1>
-        <p>Live Event Streaming</p>
+        <p>Streaming live events for our global audience</p>
     </header>
 
     <div id="twitch-player"></div>
 
     <footer>
-        <p>Powered by amplify streaming | © 2024 amplify</p>
+        <p>© 2024 amplify streaming | All rights reserved</p>
     </footer>
 
     <script src="https://player.twitch.tv/js/embed/v1.js"></script>
@@ -64,7 +93,8 @@
             height: "100%",
             autoplay: true,
             muted: false,
-            parent: ["amplifyrblx.uk"] // Update with your domain
+            allowfullscreen: true,
+            parent: ["amplifyrblx.uk"]  // Replace with your website domain
         });
     </script>
 </body>
