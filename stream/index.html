@@ -5,81 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>amplify streaming</title>
     <style>
-        /* General Styles */
+        /* Global Styles */
         body {
             font-family: 'Aileron', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            height: 100vh;
             justify-content: center;
-            color: #333;
+            align-items: center;
+            min-height: 100vh;
+            color: #212529;
         }
 
+        /* Header Styling */
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            width: 100%;
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 3rem;
+            color: #343a40;
+            letter-spacing: 1px;
             margin: 0;
-            font-weight: 600;
-            color: #333;
-            letter-spacing: 2px;
+            font-weight: bold;
         }
 
         p {
-            font-size: 1.1em;
-            color: #666;
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin: 5px 0 15px 0;
         }
 
         /* Twitch Player Container */
-        #twitch-player {
-            width: 80%;
+        #twitch-player-container {
+            display: flex;
+            justify-content: center;
+            width: 90%;
             max-width: 1200px;
-            height: 675px; /* 16:9 Aspect Ratio */
-            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
             background-color: #000;
         }
 
+        #twitch-player {
+            width: 100%;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            max-height: 675px;
+        }
+
+        /* Footer */
         footer {
             margin-top: 30px;
-            font-size: 0.85em;
-            color: #777;
+            font-size: 0.9rem;
+            color: #868e96;
+            text-align: center;
         }
 
-        /* Button Styling for Twitch iframe */
-        iframe {
-            border: none;
-        }
-
-        /* Media Queries for Responsiveness */
+        /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2em;
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1rem;
             }
 
             #twitch-player {
-                width: 95%;
-                height: auto;
-                aspect-ratio: 16 / 9;
+                height: 58vw; /* Adjust height for smaller screens */
             }
         }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            #twitch-player {
+                height: 60vw; /* Further adjustment for mobile screens */
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <header>
         <h1>amplify streaming</h1>
-        <p>Streaming live events for our global audience</p>
+        <p>Broadcasting live events with excellence</p>
     </header>
 
-    <div id="twitch-player"></div>
+    <div id="twitch-player-container">
+        <div id="twitch-player"></div>
+    </div>
 
     <footer>
         <p>© 2024 amplify streaming | All rights reserved</p>
@@ -87,15 +114,16 @@
 
     <script src="https://player.twitch.tv/js/embed/v1.js"></script>
     <script>
+        // Initialize Twitch Player
         var player = new Twitch.Player("twitch-player", {
-            channel: "thatf1fin",  // Replace with your Twitch channel
+            channel: "thatf1fin",  // Replace with the actual channel
             width: "100%",
             height: "100%",
             autoplay: true,
             muted: false,
-            allowfullscreen: true,
-            parent: ["amplifyrblx.uk"]  // Replace with your website domain
+            parent: ["amplifyrblx.uk"]  // Replace with your actual domain
         });
     </script>
+
 </body>
 </html>
