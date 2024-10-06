@@ -8,7 +8,6 @@
   src: url("../fonts/Aileron-Heavy.otf") format("opentype");
 }
 
-/* Scrollbar Hidden */
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -19,23 +18,17 @@ body {
   padding: 0;
   line-height: 1.6;
   background: #f4f4f4;
-  color: #333; /* Darker for better readability */
 }
 
 header {
-  background: #1a1a1a; /* Sleek dark grey instead of harsh black */
+  background: black;
   color: #fff;
-  padding: 15px 0;
+  padding: 10px 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-header:hover {
-  background: #333; /* Smooth background change on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -51,14 +44,17 @@ nav {
   color: #fff;
   text-decoration: none;
   font-family: "Aileron-Heavy";
-  font-size: 26px; /* Increased size for better prominence */
-  letter-spacing: 1px; /* Slight letter-spacing for modern feel */
+  font-size: 24px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
+}
+
+.nav-links li {
+  margin: 0;
 }
 
 .nav-links a {
@@ -69,7 +65,7 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #ddd; /* Slight color change on hover */
+  color: #ccc;
 }
 
 .hero {
@@ -79,56 +75,158 @@ nav {
   justify-content: center;
   align-items: center;
   background: #f4f4f4;
-  text-align: center;
 }
 
-.hero h1 {
-  font-size: 48px;
-  font-family: "Aileron-Heavy";
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 2px; /* Adds modern vibe */
+@media (max-width: 768px) {
+  /* .hero {
+    display: none;
+  } */
+
+  .info {
+    margin-top: 160px;
+  }
 }
 
-.hero p {
-  font-size: 20px;
-  color: #666;
-  max-width: 800px;
-  margin: 20px auto;
+header,
+#notification-bar {
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-out {
+  transform: translateY(-100%);
+}
+
+.slide-in {
+  transform: translateY(0);
+}
+
+header,
+#notification-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+#notification-bar {
+  top: 50px;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+}
+
+.active-slide {
+  display: block;
 }
 
 .sannc {
   text-align: center;
-  padding: 60px 20px;
-  background: #fff; /* Clean background */
+  padding: 50px 20px;
+  background: #fff;
 }
 
 .sannc h2 {
-  font-size: 30px;
+  font-size: 24px;
   margin-bottom: 20px;
   font-family: "Aileron-Heavy";
-  color: #333;
+}
+
+.transcript-button-container {
+  margin-top: 0px;
 }
 
 .transcript-btn {
-  background-color: #333; /* Dark but not pure black */
+  background-color: #000;
   color: #fff;
-  padding: 12px 25px;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   font-family: "Aileron-Heavy";
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth button interaction */
+  transition: background-color 0.3s ease;
 }
 
 .transcript-btn:hover {
-  background-color: #444;
-  transform: translateY(-3px); /* Adds subtle movement on hover */
+  background-color: #333;
+}
+
+.transcript-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.info {
+  text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.info1 {
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: -90px;
+  background: #fff;
+}
+
+.info h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.info p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Aileron";
 }
 
 .services {
   padding: 50px 20px;
-  background: #f4f4f4;
+  background: #fff;
   text-align: center;
 }
 
@@ -136,25 +234,19 @@ nav {
   font-size: 36px;
   margin-bottom: 20px;
   font-family: "Aileron-Heavy";
-  color: #333;
 }
 
 .service-card {
-  background: #1a1a1a;
+  background: black;
   margin: 20px;
-  padding: 25px;
-  border-radius: 8px; /* Rounded edges for modern look */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
   display: inline-block;
   width: calc(33% - 40px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
-  color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px); /* Adds subtle depth on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+  vertical-align: top;
+  color: white;
 }
 
 .service-card h3 {
@@ -165,7 +257,7 @@ nav {
 
 .service-card p {
   font-size: 18px;
-  color: #ccc;
+  font-family: "Aileron";
 }
 
 .testimonials {
@@ -178,29 +270,24 @@ nav {
   font-size: 36px;
   margin-bottom: 20px;
   font-family: "Aileron-Heavy";
-  color: #333;
 }
 
 .testimonial {
-  background: #333;
+  background: black;
   margin: 20px;
-  padding: 25px;
+  padding: 20px;
   color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   display: inline-block;
   width: calc(33% - 40px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
-  transition: box-shadow 0.3s ease;
-}
-
-.testimonial:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+  vertical-align: top;
 }
 
 .testimonial p {
   font-size: 18px;
-  color: #ddd; /* Softer contrast */
+  font-family: "Aileron";
 }
 
 .testimonial h4 {
@@ -208,11 +295,10 @@ nav {
   margin-top: 10px;
   font-family: "Aileron-Heavy";
   text-align: right;
-  color: #fff;
 }
 
 .footer {
-  background: #1a1a1a;
+  background: black;
   color: #fff;
   padding: 20px 0;
   text-align: center;
@@ -224,6 +310,7 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  text-align: left;
 }
 
 .footer-section {
@@ -241,14 +328,64 @@ nav {
 .footer-section ul,
 .footer-section li {
   font-size: 18px;
-  color: #ccc; /* Softer gray */
+  font-family: "Aileron";
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ccc;
 }
 
 .footer-bottom {
-  background: #111;
+  background: black;
   color: #fff;
-  padding: 15px 0;
+  padding: 10px 0;
   text-align: center;
   font-family: "Aileron-Heavy";
   margin-top: 20px;
+}
+
+.audio-container {
+  background-color: transparent;
+  padding: 10px;
+  width: 500px;
+  display: inline-block;
+}
+
+.styled-audio {
+  width: 100%;
+  border-radius: 10px;
+  font-family: "aileron-heavy";
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: black;
+  border-radius: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-volume-slider {
+  filter: invert(100%);
+}
+
+audio::-webkit-media-controls-enclosure {
+  overflow: hidden;
 }
