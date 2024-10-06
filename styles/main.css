@@ -8,24 +8,34 @@
   src: url("../fonts/Aileron-Heavy.otf") format("opentype");
 }
 
+/* Scrollbar Hidden */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 body {
   font-family: "Aileron", sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 1.8;
-  background: #faf3e0; /* Warm beige for a cozy feel */
-  color: #444; /* Softer text color */
+  line-height: 1.6;
+  background: #f4f4f4;
+  color: #333; /* Darker for better readability */
 }
 
 header {
-  background: #333; /* Slightly lighter than black */
+  background: #1a1a1a; /* Sleek dark grey instead of harsh black */
   color: #fff;
   padding: 15px 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+header:hover {
+  background: #333; /* Smooth background change on hover */
 }
 
 nav {
@@ -41,7 +51,8 @@ nav {
   color: #fff;
   text-decoration: none;
   font-family: "Aileron-Heavy";
-  font-size: 28px;
+  font-size: 26px; /* Increased size for better prominence */
+  letter-spacing: 1px; /* Slight letter-spacing for modern feel */
 }
 
 .nav-links {
@@ -58,16 +69,16 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #ffd3b6; /* Soft peach for hover */
+  color: #ddd; /* Slight color change on hover */
 }
 
 .hero {
   margin-top: 100px;
-  height: 75vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #faf3e0;
+  background: #f4f4f4;
   text-align: center;
 }
 
@@ -75,39 +86,49 @@ nav {
   font-size: 48px;
   font-family: "Aileron-Heavy";
   color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Adds modern vibe */
+}
+
+.hero p {
+  font-size: 20px;
+  color: #666;
+  max-width: 800px;
+  margin: 20px auto;
 }
 
 .sannc {
   text-align: center;
   padding: 60px 20px;
-  background: #fefae0; /* Off-white for a clean look */
+  background: #fff; /* Clean background */
 }
 
 .sannc h2 {
-  font-size: 28px;
+  font-size: 30px;
   margin-bottom: 20px;
   font-family: "Aileron-Heavy";
   color: #333;
 }
 
 .transcript-btn {
-  background-color: #ffd3b6;
-  color: #333;
+  background-color: #333; /* Dark but not pure black */
+  color: #fff;
   padding: 12px 25px;
   border: none;
   cursor: pointer;
-  border-radius: 8px; /* Softer edges */
+  border-radius: 5px;
   font-family: "Aileron-Heavy";
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth button interaction */
 }
 
 .transcript-btn:hover {
-  background-color: #ffc4a3; /* Slight change for hover */
+  background-color: #444;
+  transform: translateY(-3px); /* Adds subtle movement on hover */
 }
 
 .services {
   padding: 50px 20px;
-  background: #fefae0;
+  background: #f4f4f4;
   text-align: center;
 }
 
@@ -115,52 +136,119 @@ nav {
   font-size: 36px;
   margin-bottom: 20px;
   font-family: "Aileron-Heavy";
-  color: #444;
+  color: #333;
 }
 
 .service-card {
-  background: #f4a261; /* Soft terracotta */
+  background: #1a1a1a;
   margin: 20px;
-  padding: 20px;
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 8px; /* Rounded edges for modern look */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: calc(33% - 40px);
   text-align: left;
   color: #fff;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-5px); /* Small hover effect */
+  transform: translateY(-5px); /* Adds subtle depth on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+.service-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-family: "Aileron-Heavy";
+}
+
+.service-card p {
+  font-size: 18px;
+  color: #ccc;
 }
 
 .testimonials {
   padding: 50px 20px;
-  background: #faf3e0;
+  background: #f4f4f4;
   text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+  color: #333;
 }
 
 .testimonial {
-  background: #264653; /* Dark muted blue-green */
+  background: #333;
   margin: 20px;
-  padding: 20px;
+  padding: 25px;
   color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: inline-block;
+  width: calc(33% - 40px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+.testimonial p {
+  font-size: 18px;
+  color: #ddd; /* Softer contrast */
+}
+
+.testimonial h4 {
+  font-size: 18px;
+  margin-top: 10px;
+  font-family: "Aileron-Heavy";
+  text-align: right;
+  color: #fff;
 }
 
 .footer {
-  background: #333;
+  background: #1a1a1a;
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  font-size: 16px;
 }
 
-.footer a {
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.footer-section h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  font-size: 18px;
+  color: #ccc; /* Softer gray */
+}
+
+.footer-bottom {
+  background: #111;
   color: #fff;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  color: #ffd3b6;
+  padding: 15px 0;
+  text-align: center;
+  font-family: "Aileron-Heavy";
+  margin-top: 20px;
 }
