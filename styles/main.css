@@ -1,35 +1,23 @@
-@font-face {
-  font-family: "Aileron";
-  src: url("../fonts/Aileron-Regular.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Aileron-Heavy";
-  src: url("../fonts/Aileron-Heavy.otf") format("opentype");
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Aileron:wght@400;700&display=swap');
 
 body {
-  font-family: "Aileron", sans-serif;
+  font-family: 'Aileron', sans-serif;
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #0b0b0b, #1d1d1d);
+  color: #ffffff;
   line-height: 1.6;
-  background: #121212; /* Dark background */
-  color: #ffffff; /* Light text */
 }
 
 header {
-  background: #000;
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  padding: 15px 0;
+  padding: 20px;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 nav {
@@ -38,35 +26,30 @@ nav {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .logo a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
-  font-family: "Aileron-Heavy";
   font-size: 24px;
+  font-weight: 700;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 15px;
-}
-
-.nav-links li {
-  margin: 0;
+  gap: 20px;
 }
 
 .nav-links a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #ccc;
+  color: #f39c12;
 }
 
 .hero {
@@ -77,147 +60,108 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: #1a1a1a;
+  background: url('your-hero-image-url.jpg') center/cover no-repeat; /* Set your hero image */
   padding: 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Overlay */
 }
 
 .hero h1 {
   font-size: 48px;
-  font-family: "Aileron-Heavy";
+  font-weight: 700;
   margin: 0;
+  z-index: 1; /* Ensures the text is above the overlay */
 }
 
 .hero p {
   font-size: 20px;
   margin: 10px 0 20px;
+  z-index: 1;
 }
 
 .card {
-  background-color: #1a1a1a;
+  background-color: rgba(255, 255, 255, 0.1); /* Translucent card background */
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   margin: 20px 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 .card h2 {
   font-size: 24px;
-  font-family: "Aileron-Heavy";
+  font-weight: 700;
   margin: 0 0 10px;
 }
 
 .card p {
-  font-size: 18px;
-  font-family: "Aileron";
+  font-size: 16px;
 }
 
-.services {
+.services, .testimonials {
   padding: 50px 20px;
-  background: #121212; /* Dark background */
   text-align: center;
 }
 
-.services h2 {
+.services h2, .testimonials h2 {
   font-size: 36px;
   margin-bottom: 20px;
-  font-family: "Aileron-Heavy";
+  font-weight: 700;
 }
 
-.service-card {
-  background: #000; /* Service card background */
-  margin: 20px;
-  padding: 20px;
+.service-card, .testimonial {
+  background: rgba(255, 255, 255, 0.2); /* Translucent background for service/testimonial cards */
   border-radius: 10px;
+  padding: 20px;
+  color: white;
+  margin: 20px;
   display: inline-block;
   width: calc(33% - 40px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-card h3 {
+.service-card:hover, .testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.service-card h3, .testimonial h4 {
   font-size: 24px;
   margin-bottom: 10px;
-  font-family: "Aileron-Heavy";
-}
-
-.service-card p {
-  font-size: 18px;
-  font-family: "Aileron";
-}
-
-.testimonials {
-  padding: 50px 20px;
-  background: #1a1a1a; /* Dark background */
-  text-align: center;
-}
-
-.testimonials h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  font-family: "Aileron-Heavy";
-}
-
-.testimonial {
-  background: #000; /* Testimonial card background */
-  margin: 20px;
-  padding: 20px;
-  color: white;
-  border-radius: 10px;
-  display: inline-block;
-  width: calc(33% - 40px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: left;
-}
-
-.testimonial p {
-  font-size: 18px;
-  font-family: "Aileron";
-}
-
-.testimonial h4 {
-  font-size: 18px;
-  margin-top: 10px;
-  font-family: "Aileron-Heavy";
-  text-align: right;
 }
 
 .footer {
-  background: #000;
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 20px 0;
   text-align: center;
 }
 
 .footer-content {
-  display: flex;
-  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  text-align: left;
-}
-
-.footer-section {
-  flex: 1;
-  padding: 20px;
 }
 
 .footer-section h3 {
   font-size: 24px;
   margin-bottom: 20px;
-  font-family: "Aileron-Heavy";
-}
-
-.footer-section p,
-.footer-section ul,
-.footer-section li {
-  font-size: 18px;
-  font-family: "Aileron";
+  font-weight: 700;
 }
 
 .footer-section ul {
@@ -236,15 +180,14 @@ nav {
 }
 
 .footer-section ul li a:hover {
-  color: #ccc;
+  color: #f39c12;
 }
 
 .footer-bottom {
-  background: #000;
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 10px 0;
-  text-align: center;
-  font-family: "Aileron-Heavy";
+  font-weight: 700;
   margin-top: 20px;
 }
 
