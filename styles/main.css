@@ -1,23 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Aileron:wght@400;700&display=swap');
+@font-face {
+  font-family: "Aileron";
+  src: url("../fonts/Aileron-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Aileron-Heavy";
+  src: url("../fonts/Aileron-Heavy.otf") format("opentype");
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
 
 body {
-  font-family: 'Aileron', sans-serif;
+  font-family: "Aileron", sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #0b0b0b, #1d1d1d);
-  color: #ffffff;
   line-height: 1.6;
+  background: #f4f4f4;
 }
 
 header {
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   color: #fff;
-  padding: 20px;
+  padding: 10px 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -26,142 +37,298 @@ nav {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .logo a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
+  font-family: "Aileron-Heavy";
   font-size: 24px;
-  font-weight: 700;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
+}
+
+.nav-links li {
+  margin: 0;
 }
 
 .nav-links a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #f39c12;
+  color: #ccc;
 }
 
 .hero {
-  margin-top: 80px; /* Adjusted for fixed header */
+  margin-top: 100px;
   height: 80vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  background: url('your-hero-image-url.jpg') center/cover no-repeat; /* Set your hero image */
-  padding: 20px;
-  position: relative;
+  background: #f4f4f4;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
+@media (max-width: 768px) {
+  /* .hero {
+    display: none;
+  } */
+
+  .info {
+    margin-top: 160px;
+  }
+}
+
+header,
+#notification-bar {
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-out {
+  transform: translateY(-100%);
+}
+
+.slide-in {
+  transform: translateY(0);
+}
+
+header,
+#notification-bar {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Overlay */
+  z-index: 1000;
 }
 
-.hero h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin: 0;
-  z-index: 1; /* Ensures the text is above the overlay */
+#notification-bar {
+  top: 50px;
 }
 
-.hero p {
-  font-size: 20px;
-  margin: 10px 0 20px;
-  z-index: 1;
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-.card {
-  background-color: rgba(255, 255, 255, 0.1); /* Translucent card background */
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  margin: 20px 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.mySlides {
+  display: none;
 }
 
-.card:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+.mySlides img {
+  width: 100%;
 }
 
-.card h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 10px;
+.active-slide {
+  display: block;
 }
 
-.card p {
-  font-size: 16px;
-}
-
-.services, .testimonials {
+.sannc {
+  text-align: center;
   padding: 50px 20px;
+  background: #fff;
+}
+
+.sannc h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.transcript-button-container {
+  margin-top: 0px;
+}
+
+.transcript-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: "Aileron-Heavy";
+  transition: background-color 0.3s ease;
+}
+
+.transcript-btn:hover {
+  background-color: #333;
+}
+
+.transcript-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.info {
+  text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.info1 {
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: -90px;
+  background: #fff;
+}
+
+.info h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.info p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Aileron";
+}
+
+.services {
+  padding: 50px 20px;
+  background: #fff;
   text-align: center;
 }
 
-.services h2, .testimonials h2 {
+.services h2 {
   font-size: 36px;
   margin-bottom: 20px;
-  font-weight: 700;
+  font-family: "Aileron-Heavy";
 }
 
-.service-card, .testimonial {
-  background: rgba(255, 255, 255, 0.2); /* Translucent background for service/testimonial cards */
-  border-radius: 10px;
-  padding: 20px;
-  color: white;
+.service-card {
+  background: black;
   margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
   display: inline-block;
   width: calc(33% - 40px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  vertical-align: top;
+  color: white;
 }
 
-.service-card:hover, .testimonial:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
-}
-
-.service-card h3, .testimonial h4 {
+.service-card h3 {
   font-size: 24px;
   margin-bottom: 10px;
+  font-family: "Aileron-Heavy";
+}
+
+.service-card p {
+  font-size: 18px;
+  font-family: "Aileron";
+}
+
+.testimonials {
+  padding: 50px 20px;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Aileron-Heavy";
+}
+
+.testimonial {
+  background: black;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
+  width: calc(33% - 40px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.testimonial p {
+  font-size: 18px;
+  font-family: "Aileron";
+}
+
+.testimonial h4 {
+  font-size: 18px;
+  margin-top: 10px;
+  font-family: "Aileron-Heavy";
+  text-align: right;
 }
 
 .footer {
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   color: #fff;
   padding: 20px 0;
   text-align: center;
 }
 
 .footer-content {
+  display: flex;
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  text-align: left;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 20px;
 }
 
 .footer-section h3 {
   font-size: 24px;
   margin-bottom: 20px;
-  font-weight: 700;
+  font-family: "Aileron-Heavy";
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  font-size: 18px;
+  font-family: "Aileron";
 }
 
 .footer-section ul {
@@ -180,29 +347,45 @@ nav {
 }
 
 .footer-section ul li a:hover {
-  color: #f39c12;
+  color: #ccc;
 }
 
 .footer-bottom {
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   color: #fff;
   padding: 10px 0;
-  font-weight: 700;
+  text-align: center;
+  font-family: "Aileron-Heavy";
   margin-top: 20px;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .service-card,
-  .testimonial {
-    width: calc(100% - 40px); /* Full width on smaller screens */
-  }
+.audio-container {
+  background-color: transparent;
+  padding: 10px;
+  width: 500px;
+  display: inline-block;
+}
 
-  .hero h1 {
-    font-size: 36px; /* Responsive font size */
-  }
+.styled-audio {
+  width: 100%;
+  border-radius: 10px;
+  font-family: "aileron-heavy";
+}
 
-  .hero p {
-    font-size: 18px;
-  }
+audio::-webkit-media-controls-panel {
+  background-color: black;
+  border-radius: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-volume-slider {
+  filter: invert(100%);
+}
+
+audio::-webkit-media-controls-enclosure {
+  overflow: hidden;
 }
