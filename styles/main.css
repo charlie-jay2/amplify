@@ -17,18 +17,19 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: #f4f4f4;
+  background: #121212; /* Dark background */
+  color: #ffffff; /* Light text */
 }
 
 header {
-  background: black;
+  background: #000;
   color: #fff;
-  padding: 10px 0;
+  padding: 15px 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 nav {
@@ -69,164 +70,55 @@ nav {
 }
 
 .hero {
-  margin-top: 100px;
+  margin-top: 80px; /* Adjusted for fixed header */
   height: 80vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #f4f4f4;
-}
-
-@media (max-width: 768px) {
-  /* .hero {
-    display: none;
-  } */
-
-  .info {
-    margin-top: 160px;
-  }
-}
-
-header,
-#notification-bar {
-  transition: transform 0.3s ease-in-out;
-}
-
-.slide-out {
-  transform: translateY(-100%);
-}
-
-.slide-in {
-  transform: translateY(0);
-}
-
-header,
-#notification-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-#notification-bar {
-  top: 50px;
-}
-
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-.mySlides {
-  display: none;
-}
-
-.mySlides img {
-  width: 100%;
-}
-
-.active-slide {
-  display: block;
-}
-
-.sannc {
   text-align: center;
-  padding: 50px 20px;
-  background: #fff;
-}
-
-.sannc h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-family: "Aileron-Heavy";
-}
-
-.transcript-button-container {
-  margin-top: 0px;
-}
-
-.transcript-btn {
-  background-color: #000;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-family: "Aileron-Heavy";
-  transition: background-color 0.3s ease;
-}
-
-.transcript-btn:hover {
-  background-color: #333;
-}
-
-.transcript-modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto;
+  background: #1a1a1a;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
 }
 
-.close-btn {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-  color: black;
-  text-decoration: none;
-}
-
-.info {
-  text-align: center;
-  padding: 50px 20px;
-  background: #fff;
-}
-
-.info1 {
-  text-align: center;
-  padding: 50px 20px;
-  margin-top: -90px;
-  background: #fff;
-}
-
-.info h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+.hero h1 {
+  font-size: 48px;
   font-family: "Aileron-Heavy";
+  margin: 0;
 }
 
-.info p {
+.hero p {
+  font-size: 20px;
+  margin: 10px 0 20px;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.card h2 {
+  font-size: 24px;
+  font-family: "Aileron-Heavy";
+  margin: 0 0 10px;
+}
+
+.card p {
   font-size: 18px;
-  max-width: 800px;
-  margin: 0 auto;
   font-family: "Aileron";
 }
 
 .services {
   padding: 50px 20px;
-  background: #fff;
+  background: #121212; /* Dark background */
   text-align: center;
 }
 
@@ -237,15 +129,13 @@ header,
 }
 
 .service-card {
-  background: black;
+  background: #000; /* Service card background */
   margin: 20px;
   padding: 20px;
   border-radius: 10px;
   display: inline-block;
   width: calc(33% - 40px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  vertical-align: top;
   color: white;
 }
 
@@ -262,7 +152,7 @@ header,
 
 .testimonials {
   padding: 50px 20px;
-  background: #f4f4f4;
+  background: #1a1a1a; /* Dark background */
   text-align: center;
 }
 
@@ -273,7 +163,7 @@ header,
 }
 
 .testimonial {
-  background: black;
+  background: #000; /* Testimonial card background */
   margin: 20px;
   padding: 20px;
   color: white;
@@ -282,7 +172,6 @@ header,
   width: calc(33% - 40px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
-  vertical-align: top;
 }
 
 .testimonial p {
@@ -298,7 +187,7 @@ header,
 }
 
 .footer {
-  background: black;
+  background: #000;
   color: #fff;
   padding: 20px 0;
   text-align: center;
@@ -351,7 +240,7 @@ header,
 }
 
 .footer-bottom {
-  background: black;
+  background: #000;
   color: #fff;
   padding: 10px 0;
   text-align: center;
@@ -359,33 +248,18 @@ header,
   margin-top: 20px;
 }
 
-.audio-container {
-  background-color: transparent;
-  padding: 10px;
-  width: 500px;
-  display: inline-block;
-}
+/* Media Queries */
+@media (max-width: 768px) {
+  .service-card,
+  .testimonial {
+    width: calc(100% - 40px); /* Full width on smaller screens */
+  }
 
-.styled-audio {
-  width: 100%;
-  border-radius: 10px;
-  font-family: "aileron-heavy";
-}
+  .hero h1 {
+    font-size: 36px; /* Responsive font size */
+  }
 
-audio::-webkit-media-controls-panel {
-  background-color: black;
-  border-radius: 10px;
-}
-
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-timeline,
-audio::-webkit-media-controls-mute-button,
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display,
-audio::-webkit-media-controls-volume-slider {
-  filter: invert(100%);
-}
-
-audio::-webkit-media-controls-enclosure {
-  overflow: hidden;
+  .hero p {
+    font-size: 18px;
+  }
 }
