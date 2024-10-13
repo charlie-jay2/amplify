@@ -3,23 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>amplify - home page</title>
-    <link rel="stylesheet" href="styles/main.css" />
-    <link
-      rel="stylesheet"
-      href="styles/mainmobile.css"
-      media="screen and (max-width: 768px)" />
-    <meta property="og:title" content="Amplify" />
-    <meta property="og:description" content="Amplify | Your event needs" />
-    <meta
-      property="og:image"
-      content="https://amplifyrblx.uk/assets/images/a.png" />
+    <meta name="description" content="amplify offers professional event planning services on Roblox, making every event a seamless and unforgettable experience." />
+    <meta name="keywords" content="Roblox events, event planning, amplify Roblox, venue selection, Roblox entertainment" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="amplify" />
+    <meta property="og:title" content="amplify - Your Event Needs" />
+    <meta property="og:description" content="amplify | Your event needs" />
+    <meta property="og:image" content="https://amplifyrblx.uk/assets/images/a.png" />
     <meta property="og:url" content="https://amplifyrblx.uk" />
     <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="amplify - Your Event Needs" />
+    <meta name="twitter:description" content="amplify offers top-notch event planning services tailored for Roblox users, ensuring success at every event." />
+    <meta name="twitter:image" content="https://amplifyrblx.uk/assets/images/a.png" />
     <meta name="theme-color" content="#ffffff" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3919009115728192"
-     crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-3919009115728192">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/mainmobile.css" media="screen and (max-width: 768px)" />
+    <title>amplify - Home Page</title>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3919009115728192" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-3919009115728192" />
   </head>
 
   <body>
@@ -40,81 +44,76 @@
     <section class="hero">
       <div class="slideshow-container">
         <div class="mySlides active-slide" draggable="false">
-          <img src="assets/ssimages/AmplifyPlaceholder1.png" style="width: 100%" draggable="false" />
+          <img src="assets/ssimages/AmplifyPlaceholder1.png" alt="Amplify Event Services" style="width: 100%" loading="lazy" />
         </div>
         <div class="mySlides">
-          <img src="assets/ssimages/AmplifyPlaceholder2.png" style="width: 100%" draggable="false" />
+          <img src="assets/ssimages/AmplifyPlaceholder2.png" alt="Event Image 2" style="width: 100%" loading="lazy" />
         </div>
         <div class="mySlides">
-          <img src="assets/ssimages/spookfest.png" style="width: 100%" draggable="false" />
+          <img src="assets/ssimages/spookfest.png" alt="Spookfest Event" style="width: 100%" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <section class="info">
-      <h2>About Amplify</h2>
-      <p>
-        Amplify is your go-to solution for all event needs within Roblox. From small gatherings to large-scale events, we provide the best services to ensure your events are a success.
-      </p>
+    <section class="info text-center py-8 px-4 bg-gray-100">
+      <h2 class="text-4xl font-bold text-blue-600">About Amplify</h2>
+      <p class="text-lg mt-2">Amplify is your go-to solution for all event needs within Roblox. From small gatherings to large-scale events, we provide the best services to ensure your events are a success.</p>
     </section>
 
-    <section class="services">
-      <h2>Our Services</h2>
+    <section class="services text-center py-8 px-4">
+      <h2 class="text-4xl font-bold text-blue-600">Our Services</h2>
       <div class="service-card">
-        <h3>Event Planning</h3>
+        <h3 class="text-2xl font-semibold">Event Planning</h3>
         <p>We offer comprehensive event planning services tailored to your needs.</p>
       </div>
       <div class="service-card">
-        <h3>Venue Selection</h3>
+        <h3 class="text-2xl font-semibold">Venue Selection</h3>
         <p>Find the perfect venue for your event with our expert recommendations.</p>
       </div>
       <div class="service-card">
-        <h3>Entertainment</h3>
+        <h3 class="text-2xl font-semibold">Entertainment</h3>
         <p>We provide top-notch entertainment to keep your guests engaged and entertained.</p>
       </div>
     </section>
 
-    <section class="info1">
-      <h2>Running Hours</h2>
-      <p id="running-hours">
-        <!-- Hours will be injected by JavaScript -->
-      </p>
+    <section class="info1 py-8 px-4 bg-gray-100">
+      <h2 class="text-4xl font-bold text-blue-600">Running Hours</h2>
+      <p id="running-hours" class="text-lg mt-2"></p>
     </section>
+
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-  const runningHoursElement = document.getElementById("running-hours");
-  
-  const defaultHours = `
-    <strong>Weekdays:</strong> 9am - 6pm<br>
-    <strong>Saturday:</strong> 11am - 6pm<br>
-    <strong>Sunday:</strong> 12pm - 3pm
-  `;
+      document.addEventListener("DOMContentLoaded", function() {
+        const runningHoursElement = document.getElementById("running-hours");
 
-  const updatedHours = `
-    <strong>Weekdays:</strong> 3pm - 8pm<br>
-    <strong>Saturday:</strong> 11am - 6pm<br>
-    <strong>Sunday:</strong> 12pm - 3pm
-  `;
+        const defaultHours = `
+          <strong>Weekdays:</strong> 9am - 6pm<br>
+          <strong>Saturday:</strong> 11am - 6pm<br>
+          <strong>Sunday:</strong> 12pm - 3pm
+        `;
 
-  const today = new Date();
-  const currentYear = today.getFullYear();
-  const changeDate = new Date(currentYear, 8, 3); // September 3rd
+        const updatedHours = `
+          <strong>Weekdays:</strong> 3pm - 8pm<br>
+          <strong>Saturday:</strong> 11am - 6pm<br>
+          <strong>Sunday:</strong> 12pm - 3pm
+        `;
 
-  const hoursToShow = today >= changeDate ? updatedHours : defaultHours;
-  runningHoursElement.innerHTML = hoursToShow;
-});
-  </script>
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const changeDate = new Date(currentYear, 8, 3); // September 3rd
 
-    <footer class="footer">
+        const hoursToShow = today >= changeDate ? updatedHours : defaultHours;
+        runningHoursElement.innerHTML = hoursToShow;
+      });
+    </script>
+
+    <footer class="footer py-8 px-4 bg-gray-200">
       <div class="footer-content">
         <div class="footer-section about">
-          <h3>About Amplify</h3>
-          <p>
-            Amplify is dedicated to providing exceptional event planning services on Roblox. Our mission is to make every event memorable and seamless.
-          </p>
+          <h3 class="text-2xl font-bold">About Amplify</h3>
+          <p>amplify is dedicated to providing exceptional event planning services on Roblox. Our mission is to make every event memorable and seamless.</p>
         </div>
         <div class="footer-section links">
-          <h3>Quick Links</h3>
+          <h3 class="text-2xl font-bold">Quick Links</h3>
           <ul>
             <li><a href="./events.html">Events</a></li>
             <li><a href="./hiring.html">Hiring</a></li>
@@ -123,19 +122,35 @@
           </ul>
         </div>
         <div class="footer-section contact">
-          <h3>Contact Us</h3>
+          <h3 class="text-2xl font-bold">Contact Us</h3>
           <p>Email: <a href="mailto:contact@amplifyrblx.uk">contact@amplifyrblx.uk</a></p>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2024 Amplify | Your event needs | Website Created by CJayStreamz
+      <div class="footer-bottom text-center py-4">
+        &copy; 2024 amplify | Your event needs | Website Created by CJayStreamz
       </div>
     </footer>
 
     <!-- External scripts -->
-    <script src="scripts/sshow.js"></script>
-    <script src="scripts/notibar.js"></script>
-    <script src="scripts/scrollHide.js"></script>
-    <script src="scripts/runningHours.js"></script>
+    <script src="scripts/sshow.js" async></script>
+    <script src="scripts/notibar.js" async></script>
+    <script src="scripts/scrollHide.js" async></script>
+    <script src="scripts/runningHours.js" async></script>
+
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "amplify",
+      "url": "https://amplifyrblx.uk",
+      "logo": "https://amplifyrblx.uk/assets/images/a.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@amplifyrblx.uk",
+        "contactType": "Customer Service"
+      }
+    }
+    </script>
   </body>
 </html>
