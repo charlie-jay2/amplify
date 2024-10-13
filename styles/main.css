@@ -1,13 +1,13 @@
-/* Variables */
+/* Root Variables */
 :root {
   --font-primary: "Aileron", sans-serif;
   --font-heavy: "Aileron-Heavy";
   --color-black: #000;
   --color-white: #fff;
-  --color-gray-light: #f4f4f4;
-  --color-gray-dark: #333;
-  --color-accent: #ccc;
-  --transition-speed: 0.3s;
+  --color-light-gray: #f4f4f4;
+  --color-dark-gray: #333;
+  --color-accent: #007bff;
+  --transition-speed: 0.4s;
 }
 
 @font-face {
@@ -20,124 +20,117 @@
   src: url("../fonts/Aileron-Heavy.otf") format("opentype");
 }
 
-/* Remove scrollbar */
-::-webkit-scrollbar {
-  width: 0;
-}
-
+/* General Styles */
 body {
   font-family: var(--font-primary);
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  background: var(--color-gray-light);
+  background-color: var(--color-light-gray);
   color: var(--color-black);
+  line-height: 1.8;
   transition: background var(--transition-speed), color var(--transition-speed);
 }
 
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: var(--color-black);
-    color: var(--color-white);
-  }
+h1, h2, h3 {
+  font-family: var(--font-heavy);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--color-dark-gray);
 }
 
 header {
-  background: var(--color-black);
+  background-color: var(--color-black);
   color: var(--color-white);
-  padding: 10px 0;
+  padding: 20px 0;
+  text-align: center;
   position: fixed;
-  top: 0;
   width: 100%;
+  top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform var(--transition-speed);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 2px;
 }
 
-.logo a {
-  font-family: var(--font-heavy);
-  font-size: 1.5rem;
-  color: var(--color-white);
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
+nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
-.nav-links a {
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
   color: var(--color-white);
-  text-decoration: none;
   font-size: 1rem;
   transition: color var(--transition-speed);
 }
 
-.nav-links a:hover {
+nav ul li a:hover {
   color: var(--color-accent);
 }
 
+/* Hero Section */
 .hero {
-  margin-top: 80px;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--color-gray-light);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero {
-    margin-top: 100px;
-    height: 60vh;
-  }
-}
-
-.slideshow-container {
-  max-width: 1000px;
-  margin: auto;
-  position: relative;
-}
-
-.mySlides {
-  display: none;
-}
-
-.mySlides img {
-  width: 100%;
-}
-
-.active-slide {
-  display: block;
-}
-
-/* Reusable Section Styling */
-.section {
-  padding: 50px 20px;
+  background-color: var(--color-light-gray);
   text-align: center;
-  background: var(--color-white);
+  padding: 0 20px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: var(--color-black);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.hero .cta-button {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.hero .cta-button:hover {
+  background-color: var(--color-dark-gray);
+}
+
+/* Section Styling */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: var(--color-white);
 }
 
 .section h2 {
-  font-family: var(--font-heavy);
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 20px;
 }
 
@@ -147,21 +140,20 @@ nav {
   margin: 0 auto;
 }
 
-/* Service Cards */
+/* Service Section */
 .services {
-  background: var(--color-gray-light);
+  background-color: var(--color-light-gray);
 }
 
 .service-card {
-  background: var(--color-black);
-  color: var(--color-white);
-  padding: 20px;
+  background-color: var(--color-white);
+  padding: 30px;
   border-radius: 10px;
-  display: inline-block;
-  width: calc(33% - 40px);
   margin: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: calc(33% - 40px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform var(--transition-speed);
+  display: inline-block;
 }
 
 .service-card:hover {
@@ -169,7 +161,6 @@ nav {
 }
 
 .service-card h3 {
-  font-family: var(--font-heavy);
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
@@ -180,103 +171,83 @@ nav {
 
 /* Testimonials */
 .testimonials {
-  background: var(--color-gray-dark);
-  color: var(--color-white);
+  background-color: var(--color-light-gray);
+  padding: 100px 20px;
+}
+
+.testimonials h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
 }
 
 .testimonial {
-  background: var(--color-black);
-  padding: 20px;
+  background-color: var(--color-white);
+  padding: 30px;
   border-radius: 10px;
-  display: inline-block;
   width: calc(33% - 40px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: inline-block;
   margin: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.testimonial h4 {
-  text-align: right;
-  font-family: var(--font-heavy);
+.testimonial p {
   font-size: 1.125rem;
 }
 
-.footer {
-  background: var(--color-black);
-  color: var(--color-white);
-  padding: 20px 0;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-section {
-  flex: 1;
-  padding: 20px;
-}
-
-.footer-section h3 {
+.testimonial h4 {
+  font-size: 1.125rem;
+  margin-top: 15px;
   font-family: var(--font-heavy);
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  text-align: right;
 }
 
-.footer-section p,
-.footer-section ul {
-  font-size: 1rem;
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin-bottom: 10px;
-}
-
-.footer-section ul li a {
+/* Footer */
+.footer {
+  background-color: var(--color-black);
   color: var(--color-white);
-  text-decoration: none;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.footer a {
+  color: var(--color-accent);
   transition: color var(--transition-speed);
 }
 
-.footer-section ul li a:hover {
-  color: var(--color-accent);
+.footer a:hover {
+  color: var(--color-light-gray);
 }
 
-.footer-bottom {
-  background: var(--color-black);
-  color: var(--color-white);
-  padding: 10px 0;
-  text-align: center;
-  font-family: var(--font-heavy);
-  margin-top: 20px;
-}
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
 
-/* Audio Player Styling */
-.audio-container {
-  background-color: transparent;
-  padding: 10px;
-  width: 500px;
-  display: inline-block;
-}
+  header {
+    background-color: var(--color-dark-gray);
+  }
 
-.styled-audio {
-  width: 100%;
-  border-radius: 10px;
-}
+  .hero {
+    background-color: var(--color-dark-gray);
+  }
 
-audio::-webkit-media-controls-panel {
-  background-color: var(--color-black);
-  border-radius: 10px;
-}
+  .footer {
+    background-color: var(--color-dark-gray);
+  }
 
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-timeline,
-audio::-webkit-media-controls-volume-slider {
-  filter: invert(100%);
+  .section {
+    background-color: var(--color-dark-gray);
+  }
+
+  .service-card, .testimonial {
+    background-color: var(--color-dark-gray);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  }
 }
