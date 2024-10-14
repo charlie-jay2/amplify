@@ -1,185 +1,124 @@
-/* Global reset and scrollbar removal */
-*, *:before, *:after {
-    --tw-border-spacing-x: 0;
-    --tw-border-spacing-y: 0;
-    --tw-translate-x: 0;
-    --tw-translate-y: 0;
-    --tw-rotate: 0;
-    --tw-skew-x: 0;
-    --tw-skew-y: 0;
-    --tw-scale-x: 1;
-    --tw-scale-y: 1;
-    --tw-pan-x: ;
-    --tw-pan-y: ;
-    --tw-pinch-zoom: ;
-    --tw-scroll-snap-strictness: proximity;
-    --tw-gradient-from-position: ;
-    --tw-gradient-via-position: ;
-    --tw-gradient-to-position: ;
-    --tw-ordinal: ;
-    --tw-slashed-zero: ;
-    --tw-numeric-figure: ;
-    --tw-numeric-spacing: ;
-    --tw-numeric-fraction: ;
-    --tw-ring-inset: ;
-    --tw-ring-offset-width: 0px;
-    --tw-ring-offset-color: #fff;
-    --tw-ring-color: rgb(59 130 246 / .5);
-    --tw-ring-offset-shadow: 0 0 #0000;
-    --tw-ring-shadow: 0 0 #0000;
-    --tw-shadow: 0 0 #0000;
-    --tw-shadow-colored: 0 0 #0000;
-    --tw-blur: ;
-    --tw-brightness: ;
-    --tw-contrast: ;
-    --tw-grayscale: ;
-    --tw-hue-rotate: ;
-    --tw-invert: ;
-    --tw-saturate: ;
-    --tw-sepia: ;
-    --tw-drop-shadow: ;
-    --tw-backdrop-blur: ;
-    --tw-backdrop-brightness: ;
-    --tw-backdrop-contrast: ;
-    --tw-backdrop-grayscale: ;
-    --tw-backdrop-hue-rotate: ;
-    --tw-backdrop-invert: ;
-    --tw-backdrop-opacity: ;
-    --tw-backdrop-saturate: ;
-    --tw-backdrop-sepia: ;
-    --tw-contain-size: ;
-    --tw-contain-layout: ;
-    --tw-contain-paint: ;
-    --tw-contain-style: ;
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: solid;
-    border-color: #e5e7eb;
-    margin: 0;
-    padding: 0;
-    outline: none;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    overflow: hidden; /* Removes scrollbar */
-}
-
-/* Responsive container sizing */
-.container {
-    width: 100%;
-}
-
-@media (min-width: 640px) {
-    .container {
-        max-width: 640px;
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 768px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1024px;
-    }
-}
-
-@media (min-width: 1280px) {
-    .container {
-        max-width: 1280px;
-    }
-}
-
-@media (min-width: 1536px) {
-    .container {
-        max-width: 1536px;
-    }
-}
-
-/* Basic global typography */
-html, body {
-    line-height: 1.5;
-    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
-    background-color: rgb(17 24 39);
-    color: rgb(243 244 246);
+/* Added to remove scrollbar and support mobile devices */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
-/* Headings and text */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: inherit;
-    margin: 0;
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
 }
 
-/* Buttons */
-button, input, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    margin: 0;
+::-webkit-scrollbar {
+  width: 0; /* Hide scrollbar for WebKit browsers */
 }
 
-button {
-    cursor: pointer;
+html, body {
+  height: 100%;
 }
 
-/* Forms */
-input::placeholder, textarea::placeholder {
-    color: #9ca3af;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #111827;
 }
 
-textarea {
-    resize: vertical;
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #1F2937;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Flex and grid layouts */
-.flex {
-    display: flex;
+h1 {
+  font-family: 'Arial', sans-serif;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-.grid {
-    display: grid;
+p {
+  font-family: 'Arial', sans-serif;
+  color: #9CA3AF;
+  font-size: 1.125rem;
+  text-align: center;
 }
 
-/* Utilities */
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
+/* Added for responsiveness */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
 }
 
-.mt-4 {
-    margin-top: 1rem;
+/* Added to prevent unwanted scrollbar and adjust layouts */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  background-color: #1a202c;
+  color: white;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.mb-4 {
-    margin-bottom: 1rem;
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
 }
 
-.text-center {
-    text-align: center;
+.card {
+  box-sizing: border-box;
+  padding: 1.5rem;
+  background-color: #2d3748;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Responsive mobile layout for smaller screens */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #a0aec0;
+}
+
+/* Flexbox layout adjustment for mobile responsiveness */
 @media (max-width: 640px) {
-    body {
-        font-size: 14px;
-    }
+  .card {
+    padding: 1rem;
+  }
 
-    .container {
-        padding: 0 1rem;
-    }
-}
+  h1 {
+    font-size: 1.75rem;
+  }
 
-/* Smooth transitions and animations */
-.transition-all {
-    transition: all 0.3s ease;
-}
-
-.hover\:scale-105:hover {
-    transform: scale(1.05);
+  p {
+    font-size: 1rem;
+  }
 }
