@@ -1,85 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>404 - Page Not Found</title>
-    <style>
-      @font-face {
-        font-family: "Aileron";
-        src: url("../fonts/Aileron-Regular.otf") format("opentype");
-      }
-
-      @font-face {
-        font-family: "Aileron-Heavy";
-        src: url("../fonts/Aileron-Heavy.otf") format("opentype");
-      }
-
-      body {
-        font-family: "Aileron", sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #f4f4f4;
-        color: black;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        text-align: center;
-      }
-
-      .container {
-        padding: 20px;
-      }
-
-      h1 {
-        font-family: "Aileron-Heavy";
-        font-size: 8rem;
-        color: black;
-        margin: 0;
-      }
-
-      p {
-        font-family: "Aileron";
-        font-size: 1.5rem;
-        margin: 20px 0;
-      }
-
-      a {
-        font-family: "Aileron-Heavy";
-        text-decoration: none;
-        color: #fff;
-        background-color: black;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        transition: background-color 0.3s ease;
-      }
-
-      a:hover {
-        background-color: #333;
-      }
-
-      footer {
-        margin-top: 50px;
-        font-family: "Aileron";
-        font-size: 0.9rem;
-        color: #666;
-      }
-
-      .but {
-        width: auto;
-        height: auto;
-        padding-left: 2px;
-        padding-right: 2px;
-      }
-    </style>
-  </head>
-  <body>
+    <link rel="stylesheet" href="/styles/404.css">
+</head>
+<body>
     <div class="container">
-      <h1>404</h1>
-      <p>Sorry, we couldn't amplify your experience here.</p>
-      <a href="../index.html" class="but">Press HERE to go back home</a>
+        <div class="content">
+            <h1 class="title">404</h1>
+            <p class="subtitle">Oops! The page you're looking for doesn't exist.</p>
+            <button class="btn btn-primary" id="goHome">Go Back Home</button>
+        </div>
     </div>
-  </body>
+
+    <script src="/scripts/404.js"></script>
+</body>
 </html>
