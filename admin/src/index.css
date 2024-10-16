@@ -1,0 +1,240 @@
+@import url('https://fonts.cdnfonts.com/css/aileron');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-gray-100 font-aileron;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 relative overflow-hidden;
+  }
+  .btn::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 opacity-0 transition-opacity duration-300;
+  }
+  .btn:hover::before {
+    @apply opacity-100;
+  }
+  .btn span {
+    @apply relative z-10;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg hover:shadow-pink-500/50;
+  }
+  .btn-secondary {
+    @apply bg-gray-800 text-gray-100 shadow-lg hover:shadow-gray-700/50;
+  }
+}
+
+.glass-effect {
+  @apply bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-lg border border-gray-700 shadow-xl;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-pink-500 to-purple-600 text-transparent bg-clip-text;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }50% { transform: translateY(-20px); }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.page-transition {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improved focus styles */
+*:focus {
+  outline: 2px solid theme('colors.pink.500');
+  outline-offset: 2px;
+}
+
+/* Improved form input styles */
+input, textarea {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+input:focus, textarea:focus {
+  @apply ring-2 ring-pink-500 ring-opacity-50;
+}
+
+/* Improved button styles */
+button {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Animated underline effect for links */
+.animated-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: theme('colors.pink.500');
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Improved card hover effect */
+.hover-card {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.hover-card:hover {
+  @apply transform -translate-y-2 shadow-lg;
+}
+
+/* Custom animation for page transitions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* New styles for enhanced UI/UX */
+.neon-glow {
+  text-shadow: 0 0 5px theme('colors.pink.500'),
+               0 0 10px theme('colors.pink.500'),
+               0 0 15px theme('colors.pink.500'),
+               0 0 20px theme('colors.pink.500');
+}
+
+.hover-neon:hover {
+  @apply neon-glow;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, theme('colors.pink.500'), theme('colors.purple.600'));
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+.shimmer {
+  background: linear-gradient(
+    to right,
+    theme('colors.gray.800') 0%,
+    theme('colors.gray.700') 20%,
+    theme('colors.gray.800') 40%,
+    theme('colors.gray.800') 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.rotate-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate-on-hover:hover {
+  transform: rotate(5deg);
+}
+
+.scale-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.scale-on-hover:hover {
+  transform: scale(1.05);
+}
+
+.tilt-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.tilt-on-hover:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
